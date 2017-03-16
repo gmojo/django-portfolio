@@ -1,0 +1,130 @@
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    font-family: Montserrat;
+}
+
+.dotcom{
+    color: #00cc00;
+}
+
+nav.navbar {
+    margin-bottom: 0;
+    border-radius:0px !important;
+}
+
+.jumbotron {
+    background-color: #1abc9c;
+}
+
+h1.jumbohead, p.jumbolead {
+    color: #ffffff;
+}
+
+/* lines to side of headings */
+h2.sidelines {
+     overflow: hidden;
+     text-align: center;
+}
+
+h2.sidelines:before,
+h2.sidelines:after {
+     background-color: #333;
+     content: "";
+     display: inline-block;
+     height: 1px;
+     position: relative;
+     vertical-align: middle;
+     width: 50%;
+}
+
+h2.sidelines:before {
+     right: 0.5em;
+     margin-left: -50%;
+}
+
+h2.sidelines:after {
+     left: 0.5em;
+     margin-right: -50%;
+}
+/* -------------------------------- */
+
+/* Blog styles */
+.date {
+    font-style: italic;
+}
+
+.blog .col-md-6 {
+    margin-bottom: 3rem;
+}
+/* ----------- */
+
+/* Projects - Center align the text within the three columns */
+.rounded-circle {
+    border-radius: 50%;
+}
+
+.projects .col-md-4 {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.projects h2 {
+    font-weight: normal;
+}
+.projects .col-md-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+}
+/* --------------------------------------------- */
+
+/* Social buttons */
+#social_list li
+{
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+    font-size:30px
+}
+
+/* links --------------------*/
+a:link {
+    color: #2c3e50;
+}
+
+a:visited {
+    color: #2c3e50;
+}
+
+a:hover {
+    color: #1abc9c;
+    text-decoration: none;
+}
+
+a:active {
+    color: #2c3e50;
+}
+
+a.btn-success {
+    color: white;
+}
+/* ------------------------*/
+
+.aboutpage {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: #d5dddd;
+    padding-top: 5px;
+}
+
+.sidebar {
+    margin-top: 20px;
+}
+
+.blog-date {
+    text-align: center;
+}
