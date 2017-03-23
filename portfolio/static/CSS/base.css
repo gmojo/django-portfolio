@@ -17,14 +17,6 @@ nav.navbar {
     border-radius:0px !important;
 }
 
-.jumbotron {
-    background-color: #1abc9c;
-}
-
-h1.jumbohead, p.jumbolead {
-    color: #ffffff;
-}
-
 /* lines to side of headings */
 h2.sidelines {
      overflow: hidden;

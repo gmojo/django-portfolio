@@ -7,4 +7,3 @@ db.sqlite3
 /portfolio/media
 .DS_Store
 /.idea
-/portfolio/config/settings/local.py
