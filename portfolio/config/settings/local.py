@@ -1,4 +1,4 @@
-from portfolio.config.settings.production import *
+from config.settings.production import *
 
 DEBUG = True
 ALLOWED_HOSTS = []
