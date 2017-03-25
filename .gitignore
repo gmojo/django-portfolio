@@ -5,5 +5,8 @@ myvenv
 db.sqlite3
 /portfolio/staticfiles
 /portfolio/media
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
 .DS_Store
 /.idea
