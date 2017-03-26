@@ -9,7 +9,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '138.68.163.209']
+ALLOWED_HOSTS = ['138.68.163.209']
 
 
 # Application definition
