@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee: 400,300,500,600,700" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/railscasts.css' %}">
     <script src="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js' %}"></script>
@@ -29,10 +30,10 @@
 
     <!-- Header above navbar -->
     <div class="container">
-        <div class="row" style="margin-top:20px">
+        <div class="row" style="margin-top:10px">
 
             <div class="col-md-6">
-                <a style="font-size:26px" href="https://garethmoger.com/">GarethMoger<span class='dotcom'>.com</span></a>
+                <a class="abovenavheader" href="https://garethmoger.com/">GARETH MOGER</a>
             </div>
 
             <div class="col-md-6 text-right">
@@ -61,7 +62,6 @@
 
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'home:about' %}">ABOUT</a></li>
                     <li><a href="{% url 'blog:posts' %}">BLOG</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="projects">PROJECTS<span class="caret"></span></a>
@@ -72,6 +72,8 @@
                                 <li><a href="#">Yet</a></li>
                             </ul>
                     </li>
+                    <li><a href="{% url 'home:about' %}">ABOUT</a></li>
+                    <li><a href="{% url 'home:contact' %}">CONTACT</a></li>
                 </ul>
 
                 <form class="navbar-form navbar-right">

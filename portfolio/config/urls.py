@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^about/', include('home.urls')),
     url(r'^projects/', include('home.urls')),
+    url(r'^contact/', include('home.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 	
 ]

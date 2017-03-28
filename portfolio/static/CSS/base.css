@@ -5,7 +5,12 @@ html,body
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
-    font-family: Raleway;
+    font-family: 'Raleway', sans-serif;
+}
+
+.abovenavheader {
+    font-size: 26px;
+    font-family: 'Bungee', cursive;
 }
 
 p {
@@ -13,7 +18,7 @@ p {
     line-height: 27px;
 }
 
-.jumbotron {
+.jumbohome {
     position: relative;
     background: url("../img/12.png") center center;
     background-size: cover;
@@ -21,10 +26,18 @@ p {
     color: whitesmoke;
 }
 
+.jumboabout {
+    position: relative;
+    background: url("../img/4.png") center center;
+    background-size: cover;
+    overflow: hidden;
+    color: whitesmoke;
+}
 
 nav.navbar {
     margin-bottom: 0;
     border-radius:0px !important;
+    font-family: 'Bungee', cursive;
 }
 
 /* lines to side of headings */

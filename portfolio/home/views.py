@@ -15,3 +15,7 @@ def about(request):
 def projects(request):
     title_text = 'Projects'
     return render(request, 'home/projects.html', {'title': title_text})
+
+def contact(request):
+    title_text = 'Contact'
+    return render(request, 'home/contact.html', {'title': title_text})
