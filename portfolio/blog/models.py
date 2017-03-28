@@ -4,6 +4,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
+    headimage = models.ImageField(default='static/img/stockblog1.jpeg')
     text = RichTextUploadingField()
     category = models.ForeignKey('Category')
     published_date = models.DateTimeField(blank=True, null=True)

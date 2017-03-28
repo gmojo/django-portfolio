@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 {% block content %}
-
 
     <div class="container">
         <h2 class="sidelines">{{ post.title }}</h2>
         <div class="blog-date">
-            {{ post.published_date }}
+            <p>{{ post.published_date }} | Category: <a href="{% url 'blog:category' name=post.category %}">{{ post.category }}</a></p>
         </div>
-        <br>
+        <img class="img-responsive" src="{{ post.headimage.url }}" alt="Blog Header">
         <p>{{ post.text|safe }}</p>
-        <p>Category: <a href="{% url 'blog:category' name=post.category %}">{{ post.category }}</a></p>
     </div>
 
 {% endblock %}

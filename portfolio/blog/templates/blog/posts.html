@@ -15,7 +15,7 @@
             <div class="date">
                 <p><span class="fa fa-clock-o"></span> {{ post.published_date }} </p>
             </div>
-            <p>{{ post.text|safe|truncatewords:100 }}</p>
+            <p>{{ post.text|safe|escape|truncatewords:100 }}</p>
             <p>Category: <a href="{% url 'blog:category' name=post.category %}">{{ post.category }}</a></p>
             <hr>
             {% endfor %}

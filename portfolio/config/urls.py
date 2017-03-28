@@ -6,6 +6,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.views.static import serve
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -21,7 +22,5 @@ urlpatterns = [
 # serving media files only on debug mode
 if settings.DEBUG:
     urlpatterns += [
-        url(r'^media/(?P<path>.*)$', serve, {
-            'document_root': settings.MEDIA_ROOT
-        }),
-	]
+        url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+	] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

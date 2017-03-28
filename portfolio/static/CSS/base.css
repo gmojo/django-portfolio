@@ -5,8 +5,22 @@ html,body
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
-    font-family: Montserrat;
+    font-family: Raleway;
 }
+
+p {
+    font-size: 17px;
+    line-height: 27px;
+}
+
+.jumbotron {
+    position: relative;
+    background: url("../img/12.png") center center;
+    background-size: cover;
+    overflow: hidden;
+    color: whitesmoke;
+}
+
 
 nav.navbar {
     margin-bottom: 0;
@@ -15,8 +29,8 @@ nav.navbar {
 
 /* lines to side of headings */
 h2.sidelines {
-     overflow: hidden;
-     text-align: center;
+    overflow: hidden;
+    text-align: center;
 }
 
 h2.sidelines:before,
@@ -44,10 +58,6 @@ h2.sidelines:after {
 /* Blog styles */
 .date {
     font-style: italic;
-}
-
-.blog .col-md-6 {
-    margin-bottom: 3rem;
 }
 /* ----------- */
 
@@ -113,6 +123,7 @@ a.btn-success {
     margin-top: 20px;
 }
 
-.blog-date {
+.blog-date p{
     text-align: center;
+    font-size: 14px;
 }
