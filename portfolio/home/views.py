@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from blog.models import Post
-
+from .forms import ContactForm
 
 def home(request):
     title_text = 'Home'
@@ -18,4 +20,21 @@ def projects(request):
 
 def contact(request):
     title_text = 'Contact'
-    return render(request, 'home/contact.html', {'title': title_text})
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact_name = form.cleaned_data['contact_name']
+            contact_email = form.cleaned_data['contact_email']
+            content = form.cleaned_data['content']
+            try:
+                send_mail(contact_name, content, contact_email, ['mogerweb@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('./thanks/')
+    return render(request, 'home/contact.html', {'title': title_text,'form': form})
+
+def thanks(request):
+    title_text = 'Thank you!'
+    return render(request, 'home/thanks.html', {'title': title_text})

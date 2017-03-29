@@ -11,6 +11,14 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['138.68.163.209', 'garethmoger.com']
 
+#email setup
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'mogerweb@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 
 # Application definition
 ROOT_URLCONF = 'config.urls'
@@ -28,6 +36,7 @@ INSTALLED_APPS = [
     'home',
     'ckeditor',
     'ckeditor_uploader',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
