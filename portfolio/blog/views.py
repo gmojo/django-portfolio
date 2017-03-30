@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Category
+from django.utils import timezone
 
 def category(request, name):
     title_text = name
@@ -22,6 +23,7 @@ def category(request, name):
 def posts(request):
     title_text = 'Blog'
     post_list = Post.objects.all().order_by('-published_date')
+    latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
 
     paginator = Paginator(post_list, 2)
     page = request.GET.get('page')
@@ -33,7 +35,7 @@ def posts(request):
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog/posts.html', {'posts': posts, 'title': title_text})
+    return render(request, 'blog/posts.html', {'posts': posts, 'title': title_text, 'latest': latest_list})
 
 def post_detail(request, pk, slug):
     title_text = Post.objects.only('pk').get(pk=pk).title

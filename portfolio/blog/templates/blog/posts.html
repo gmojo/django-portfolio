@@ -74,7 +74,17 @@
 
             </div>
 
-            <!-- Side Widget Well -->
+            <!-- Blog Latest Well -->
+            <div class="well">
+                <h4>Latest Posts</h4>
+                <ul class="list-unstyled">
+                    {% for post in latest %}
+                        <li><a href="{% url 'blog:post_detail' pk=post.pk slug=post.slug %}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Blog Tags Well -->
             <div class="well">
                 <h4>Tags</h4>
             </div>
