@@ -10,7 +10,6 @@ html,body
 
 .abovenavheader {
     font-size: 30px;
-    font-family: 'Bungee', cursive;
 }
 
 /* Social buttons */
@@ -29,14 +28,12 @@ html,body
 
 input[type="text"]
 {
-    font-family: 'Raleway', sans-serif;
     font-size:14px;
 }
 
 nav.navbar {
     margin-bottom: 0;
     border-radius:0px !important;
-    font-family: 'Bungee', cursive;
     font-size: 14px;
 }
 
@@ -154,4 +151,10 @@ a.btn-success {
 
 #thanksp {
     text-align: center;
+}
+
+.blogheader {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }

@@ -1,14 +1,29 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+
 {% block content %}
+
+{% load disqus_tags %}
+{% set_disqus_identifier "page_" page.pk %}
+{% set_disqus_title page.title %}
+
+
 
     <div class="container">
         <h2 class="sidelines">{{ post.title }}</h2>
         <div class="blog-date">
-            <p>{{ post.published_date }} | Category: <a href="{% url 'blog:category' name=post.category %}">{{ post.category }}</a></p>
+            <p>{{ post.published_date }}</p>
         </div>
-        <img class="img-responsive" src="{{ post.headimage.url }}" alt="Blog Header">
+        <img class="img-responsive blogheader" src="{{ post.headimage.url }}" alt="Blog Header">
+        <br>
         <p>{{ post.text|safe }}</p>
+        <hr>
+        <p>Category: <a href="{% url 'blog:category' name=post.category %}">{{ post.category }}</a></p>
+        <br>
+
+        <div class="col-md-8 col-md-push-2">
+            {% disqus_show_comments %}
+        </div>
     </div>
 
 {% endblock %}

@@ -32,11 +32,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
+    'django.contrib.sites',
     'blog',
     'home',
     'ckeditor',
     'ckeditor_uploader',
     'widget_tweaks',
+    'disqus',
 ]
 
 MIDDLEWARE = [
@@ -162,3 +165,7 @@ CKEDITOR_CONFIGS = {
             ]),
     }
 }
+
+#Disqus settings
+DISQUS_API_KEY = 'uaLOY3VOdR3b6tKwJOH2B43xxsOxSwr0FGnUqqt4evGi4ir9GUTFLyIgN1iPYerf'
+DISQUS_WEBSITE_SHORTNAME = 'garethmoger'
