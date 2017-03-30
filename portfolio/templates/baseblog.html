@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+
+        <!-- Blog Post/s Column -->
+        <div class="col-md-8">
+
+        {% block blogcontent %}
+
+        {% endblock %}
+
+        </div>
+
+        <!-- Blog Sidebar Widgets Column -->
+        <div class="col-md-4 sidebar">
+
+            <!-- Blog Categories Well -->
+            <div class="well">
+                <h4>Blog Categories</h4>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'blog:posts' %}">All</a></li>
+                            <li><a href="{% url 'blog:category' name='Python' %}">Python</a></li>
+                            <li><a href="{% url 'blog:category' name='Django' %}">Django</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'blog:category' name='Travel' %}">Travel</a></li>
+                            <li><a href="{% url 'blog:category' name='Data' %}">Data</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Blog Latest Well -->
+            <div class="well">
+                <h4>Latest Posts</h4>
+                <ul class="list-unstyled">
+                    {% for post in latest %}
+                        <li><a href="{% url 'blog:post_detail' pk=post.pk slug=post.slug %}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Blog Tags Well -->
+            <div class="well">
+                <h4>Tags</h4>
+            </div>
+
+        </div>
+
+    </div><!-- /.row -->
+
+    {% block disqus %}
+    {% endblock %}
+
+</div>
+
+{% endblock %}
