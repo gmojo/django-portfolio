@@ -50,6 +50,10 @@ p {
     color: whitesmoke;
 }
 
+.jumbolead {
+    font-weight: bold !important;
+}
+
 .jumboabout {
     position: relative;
     background: url("../img/4.png") center center;
@@ -102,9 +106,11 @@ h2.sidelines:after {
     margin-bottom: 3rem;
     text-align: center;
 }
+
 .projects h2 {
     font-weight: normal;
 }
+
 .projects .col-md-4 p {
     margin-right: .75rem;
     margin-left: .75rem;

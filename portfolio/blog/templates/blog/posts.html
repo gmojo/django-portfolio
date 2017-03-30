@@ -62,14 +62,12 @@
                             <li><a href="{% url 'blog:posts' %}">All</a></li>
                             <li><a href="{% url 'blog:category' name='Python' %}">Python</a></li>
                             <li><a href="{% url 'blog:category' name='Django' %}">Django</a></li>
-                            <li><a href="{% url 'blog:category' name='Data' %}">Data</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6">
                         <ul class="list-unstyled">
                             <li><a href="{% url 'blog:category' name='Travel' %}">Travel</a></li>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">Category Name</a></li>
+                            <li><a href="{% url 'blog:category' name='Data' %}">Data</a></li>
                         </ul>
                     </div>
                 </div>
@@ -78,8 +76,7 @@
 
             <!-- Side Widget Well -->
             <div class="well">
-                <h4>Other Side Widget Well</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                <h4>Tags</h4>
             </div>
 
         </div>
