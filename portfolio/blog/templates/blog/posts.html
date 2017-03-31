@@ -11,6 +11,11 @@
     </div>
     <p>{{ post.text|safe|escape|truncatewords:100 }}</p>
     <p>Category: <a href="{% url 'blog:category' name=post.category %}">{{ post.category }}</a></p>
+    <p>Tags:
+        {% for tag in post.tags.all %}
+            <a href="{% url 'blog:tag' name=tag %}">{{ tag }}</a>
+        {% endfor %}
+    </p>
     <hr>
     {% endfor %}
 

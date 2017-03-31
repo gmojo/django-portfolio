@@ -8,13 +8,18 @@
 
     <h2 class="sidelines">{{ post.title }}</h2>
     <div class="blog-date">
-        <p>{{ post.published_date }}</p>
+        <p><span class="fa fa-clock-o"></span> {{ post.published_date }} </p>
     </div>
     <img class="img-responsive blogheader" src="{{ post.headimage.url }}" alt="Blog Header">
     <br>
     <p>{{ post.text|safe }}</p>
     <hr>
     <p>Category: <a href="{% url 'blog:category' name=post.category %}">{{ post.category }}</a></p>
+    <p>Tags:
+        {% for tag in post.tags.all %}
+            <a href="{% url 'blog:tag' name=tag %}">{{ tag }}</a>
+        {% endfor %}
+    </p>
     <br>
 
 {% endblock %}

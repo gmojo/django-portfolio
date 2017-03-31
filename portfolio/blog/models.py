@@ -2,6 +2,13 @@ from django.db import models
 from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
 
+
+class Tag(models.Model):
+    slug = models.SlugField(max_length=200, unique=True)
+
+    def __str__(self):
+        return self.slug
+
 class Post(models.Model):
     title = models.CharField(max_length=200)
     headimage = models.ImageField(default='stockblog1.jpeg')
@@ -9,6 +16,7 @@ class Post(models.Model):
     category = models.ForeignKey('Category')
     published_date = models.DateTimeField(blank=True, null=True)
     slug = models.SlugField(max_length=150)
+    tags = models.ManyToManyField(Tag)
 
     def publish(self):
         self.published_date = timezone.now()
