@@ -3,13 +3,15 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from blog.models import Post
+from .models import Projects
 from .forms import ContactForm
 
 
 def home(request):
     title_text = 'Home'
     post_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:2]
-    return render(request, 'home/home.html', {'posts': post_list, 'title': title_text})
+    projects = Projects.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:3]
+    return render(request, 'home/home.html', {'posts': post_list, 'title': title_text, 'projects': projects})
 
 
 def about(request):
@@ -19,7 +21,8 @@ def about(request):
 
 def projects(request):
     title_text = 'Projects'
-    return render(request, 'home/projects.html', {'title': title_text})
+    projects = Projects.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    return render(request, 'home/projects.html', {'title': title_text, 'projects': projects})
 
 
 def contact(request):

@@ -9,9 +9,12 @@
     <div class="date">
         <p><span class="fa fa-clock-o"></span> {{ post.published_date }} </p>
     </div>
-    <p>{{ post.text|safe|escape|truncatewords:100 }}</p>
-    <p>Category: <a href="{% url 'blog:category' name=post.category %}">{{ post.category }}</a></p>
-    <p>Tags:
+    <div class="blogtext">
+        {{ post.text|safe|escape|truncatewords_html:100 }}
+    </div>
+    <p>Category: <a href="{% url 'blog:category' name=post.category %}">{{ post.category }}</a>
+    <br>
+        Tags:
         {% for tag in post.tags.all %}
             <a href="{% url 'blog:tag' name=tag %}">{{ tag }}</a>
         {% endfor %}
@@ -29,12 +32,12 @@
                     <li class="disabled"><span>&laquo; Previous</span></li>
                 {% endif %}
 
-                {% for i in posts.paginator.page_range %}
-                {% if posts.number == i %}
-                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                {% else %}
-                    <li><a href="?page={{ i }}">{{ i }}</a></li>
-                {% endif %}
+                {% for pg in page_range %}
+                    {% if posts.number == pg %}
+                        <li class="active"><span>{{ pg }} <span class="sr-only">(current)</span></span></li>
+                    {% else %}
+                        <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+                    {% endif %}
                 {% endfor %}
 
                 {% if posts.has_next %}
@@ -44,6 +47,7 @@
                 {% endif %}
             </ul>
         {% endif %}
-    </div> <!-- end pagination -->
+    </div>
+    <!-- end pagination -->
 
 {% endblock %}

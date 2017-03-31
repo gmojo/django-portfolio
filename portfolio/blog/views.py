@@ -12,9 +12,13 @@ def tag(request, name):
     tags = Tag.objects.all()
     categories = Category.objects.all()
 
-    paginator = Paginator(post_list, 2)
+    paginator = Paginator(post_list, 5)
 
-    page = request.GET.get('page')
+    try:
+        page = int(request.GET.get('page', '1'))
+    except:
+        page = 1
+
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
@@ -22,7 +26,15 @@ def tag(request, name):
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog/posts.html', {'posts': posts, 'title': title_text, 'latest': latest_list, 'tags': tags, 'categories': categories})
+    index = posts.number - 1
+    max_index = len(paginator.page_range)
+    start_index = index - 7 if index >= 7 else 0
+    end_index = index + 7 if index <= max_index - 7 else max_index
+    page_range = paginator.page_range[start_index:end_index]
+
+    return render(request, 'blog/posts.html', {
+        'posts': posts, 'title': title_text, 'latest': latest_list, 'tags': tags, 'categories': categories, 'page_range': page_range
+    })
 
 def category(request, name):
     title_text = name
@@ -32,9 +44,13 @@ def category(request, name):
     tags = Tag.objects.all()
     categories = Category.objects.all()
 
-    paginator = Paginator(post_list, 2)
+    paginator = Paginator(post_list, 5)
 
-    page = request.GET.get('page')
+    try:
+        page = int(request.GET.get('page', '1'))
+    except:
+        page = 1
+
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
@@ -42,7 +58,15 @@ def category(request, name):
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog/posts.html', {'posts': posts, 'title': title_text, 'latest': latest_list, 'tags': tags, 'categories': categories})
+    index = posts.number - 1
+    max_index = len(paginator.page_range)
+    start_index = index - 7 if index >= 7 else 0
+    end_index = index + 7 if index <= max_index - 7 else max_index
+    page_range = paginator.page_range[start_index:end_index]
+
+    return render(request, 'blog/posts.html', {
+        'posts': posts, 'title': title_text, 'latest': latest_list, 'tags': tags, 'categories': categories, 'page_range': page_range
+    })
 
 def posts(request):
     title_text = 'Blog'
@@ -51,8 +75,12 @@ def posts(request):
     tags = Tag.objects.all()
     categories = Category.objects.all()
 
-    paginator = Paginator(post_list, 2)
-    page = request.GET.get('page')
+    paginator = Paginator(post_list, 5)
+
+    try:
+        page = int(request.GET.get('page', '1'))
+    except:
+        page = 1
 
     try:
         posts = paginator.page(page)
@@ -61,7 +89,15 @@ def posts(request):
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog/posts.html', {'posts': posts, 'title': title_text, 'latest': latest_list, 'tags': tags, 'categories': categories})
+    index = posts.number - 1
+    max_index = len(paginator.page_range)
+    start_index = index - 7 if index >= 7 else 0
+    end_index = index + 7 if index <= max_index - 7 else max_index
+    page_range = paginator.page_range[start_index:end_index]
+
+    return render(request, 'blog/posts.html', {
+        'posts': posts, 'title': title_text, 'latest': latest_list, 'tags': tags, 'categories': categories, 'page_range': page_range
+    })
 
 def post_detail(request, pk, slug):
     title_text = Post.objects.only('pk').get(pk=pk).title
