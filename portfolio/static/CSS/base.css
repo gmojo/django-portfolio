@@ -164,3 +164,14 @@ a.btn-success {
     margin-left: auto;
     margin-right: auto
 }
+
+.blogimage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blogdivimage {
+    display:block;
+    text-align:center
+}

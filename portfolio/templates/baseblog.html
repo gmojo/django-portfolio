@@ -45,7 +45,7 @@
                 <h4>Tags</h4>
                 <p>
                     {% for tag in tags %}
-                        <a href="{% url 'blog:tag' name=tag.slug %}">{{ tag.slug }}</a>
+                        <a href="{% url 'blog:tag' name=tag.slug %}">{{ tag.slug }} ({{ tags.count }}),</a>
                     {% endfor %}
                 </p>
             </div>

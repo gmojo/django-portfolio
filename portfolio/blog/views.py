@@ -5,7 +5,7 @@ from django.utils import timezone
 
 
 def tag(request, name):
-    title_text = name
+    title_text = name + ' - GarethMoger.com'
     tagPK = Tag.objects.only('pk').get(slug=name).id
     post_list = Post.objects.filter(tags=tagPK)
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
@@ -37,7 +37,7 @@ def tag(request, name):
     })
 
 def category(request, name):
-    title_text = name
+    title_text = name + ' - GarethMoger.com'
     catPK = Category.objects.only('pk').get(name=name).id
     post_list = Post.objects.filter(category=catPK)
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
@@ -69,7 +69,7 @@ def category(request, name):
     })
 
 def posts(request):
-    title_text = 'Blog'
+    title_text = 'Blog - GarethMoger.com'
     post_list = Post.objects.all().order_by('-published_date')
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
     tags = Tag.objects.all()
