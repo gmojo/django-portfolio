@@ -75,9 +75,9 @@
                     <li><a href="{% url 'home:contact' %}">CONTACT</a></li>
                 </ul>
 
-                <form class="navbar-form navbar-right">
+                <form method="get" action="{% url 'home:search' %}" class="navbar-form navbar-right">
                     <div class="form-group">
-                        <input type="text" class="form-control searchbar" placeholder="Search">
+                        <input type="text" name="query" class="form-control searchbar" placeholder="Search">
                     </div>
                 </form>
             </div>

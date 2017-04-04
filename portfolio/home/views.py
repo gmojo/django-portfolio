@@ -3,9 +3,15 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from blog.models import Post
+from django.db.models import Q
 from .models import Projects
 from .forms import ContactForm
 
+
+def search(request):
+    query = request.GET.get('query')
+    results = Post.objects.filter(Q(title__icontains=query) | Q(text__icontains=query))
+    return render(request, 'home/search.html', {'results': results})
 
 def home(request):
     title_text = 'Home - GarethMoger.com'

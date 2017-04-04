@@ -8,7 +8,7 @@ from django.utils import timezone
 def tag(request, name):
     title_text = name + ' - GarethMoger.com'
     tagPK = Tag.objects.only('pk').get(slug=name).id
-    post_list = Post.objects.filter(tags=tagPK)
+    post_list = Post.objects.filter(tags=tagPK).order_by('-published_date')
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
     cat_count = Category.objects.all().annotate(catcount=Count('post'))
     tag_count = Tag.objects.all().annotate(tagcount=Count('post'))
@@ -45,7 +45,7 @@ def tag(request, name):
 def category(request, name):
     title_text = name + ' - GarethMoger.com'
     catPK = Category.objects.only('pk').get(name=name).id
-    post_list = Post.objects.filter(category=catPK)
+    post_list = Post.objects.filter(category=catPK).order_by('-published_date')
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
     cat_count = Category.objects.all().annotate(catcount=Count('post'))
     tag_count = Tag.objects.all().annotate(tagcount=Count('post'))
