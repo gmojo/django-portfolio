@@ -97,18 +97,14 @@ h2.sidelines:after {
 /* ----------- */
 
 /* Projects - Center align the text within the three columns */
-.rounded-circle {
-    border-radius: 50%;
-}
-
 .projects .col-md-4 {
     margin-top: 2rem;
     margin-bottom: 3rem;
-    text-align: center;
 }
 
-.projects h2 {
+.projects h3 {
     font-weight: normal;
+    text-align: center;
 }
 
 .projects .col-md-4 p {

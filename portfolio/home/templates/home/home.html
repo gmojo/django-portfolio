@@ -48,32 +48,25 @@
         </div>
     </div>
 
-
-
-    <!-- Latest projects: 1 row of 3 columns/cards -->
+    <!-- Latest projects -->
     <div class="container">
-        <div class="row projects">
+        <h2 class="sidelines">LATEST PROJECTS</h2>
 
-            <div class="col-lg-12">
-                <h2 class="sidelines">LATEST PROJECTS</h2>
+        {% for project in projects %}
+        <div class="row">
+            <div class="col-sm-2">
+                <img class="img-responsive img-rounded" src="{{ project.image.url }}" alt="Blog Header" width="175" height="175">
             </div>
-
-            {% for project in projects %}
-            <div class="col-xs-18 col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img class="img-responsive rounded-circle" src="{{ project.image.url }}" alt="Blog Header" width="140" height="140">
-                    <div class="caption">
-                        <h3>{{ project.name }}</h3>
-                        <p>{{ project.description|safe|truncatewords_html:50 }}</p>
-                        <p><a class="btn btn-success" href="#" role="button">More &raquo;</a></p>
-                    </div>
-                </div>
+            <div class="col-sm-10">
+                <h3><a href="#">{{ project.name }}</a></h3>
+                <p>{{ project.description|safe|truncatewords_html:50 }}</p>
             </div>
-            {% endfor %}
-
         </div>
+        <hr>
+        {% endfor %}
+
     </div>
-    <!--end row/projects-->
+    <!--end projects-->
 
 
 {% endblock %}
