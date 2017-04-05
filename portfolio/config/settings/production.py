@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'widget_tweaks',
     'disqus',
+    'projects',
 ]
 
 MIDDLEWARE = [

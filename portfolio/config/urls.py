@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls')),
     url(r'^about/', include('home.urls')),
-    url(r'^projects/', include('home.urls')),
+    url(r'^projects/', include('projects.urls')),
     url(r'^contact/', include('home.urls')),
     url(r'^thanks/', include('home.urls')),
     url(r'^search/', include('home.urls')),

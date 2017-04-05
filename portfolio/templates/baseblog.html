@@ -20,29 +20,28 @@
         <div class="col-md-4 sidebar">
 
             <!-- Blog Categories Well -->
-            <div class="well">
+            <div class="list-group">
                 <h4>Blog Categories</h4>
-                <a href="{% url 'blog:posts' %}">All</a>
-                <p>
-                    {% for category in categories %}
-                        <a href="{% url 'blog:category' name=category.name %}">{{ category.name }} ({{ category.catcount }}),</a>
-                    {% endfor %}
-                </p>
+                <a href="{% url 'blog:posts' %}" class="list-group-item">All</a>
+                {% for category in categories %}
+                    <a href="{% url 'blog:category' name=category.name %}"
+                       class="list-group-item">{{ category.name }}
+                        <span class="badge badge-default badge-pill">{{ category.catcount }}</span>
+                    </a>
+                {% endfor %}
             </div>
 
             <!-- Blog Latest Posts Well -->
-            <div class="well">
+            <div class="list-group">
                 <h4>Latest Posts</h4>
-                <ul class="list-unstyled">
-                    {% for post in latest %}
-                        <li><a href="{% url 'blog:post_detail' pk=post.pk slug=post.slug %}">{{ post.title }}</a></li>
-                    {% endfor %}
-                </ul>
+                {% for post in latest %}
+                    <a href="{% url 'blog:post_detail' pk=post.pk slug=post.slug %}" class="list-group-item">{{ post.title }}</a>
+                {% endfor %}
             </div>
 
             <!-- Blog Tags Well -->
+            <h4>Tags</h4>
             <div class="well">
-                <h4>Tags</h4>
                 <p>
                     {% for tag in tag_count %}
                         <a href="{% url 'blog:tag' name=tag.slug %}">{{ tag.slug }} ({{ tag.tagcount }}),</a>
