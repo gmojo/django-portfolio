@@ -3,6 +3,8 @@ from django.utils import timezone
 from .models import Projects
 import requests
 
+def projectredirect(name):
+    return redirect(name)
 
 def projects(request):
     title_text = 'Projects - GarethMoger.com'
