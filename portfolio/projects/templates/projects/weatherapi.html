@@ -16,9 +16,12 @@
             <button class="btn btn-primary" type="submit">Get Data</button>
         </form>
         <br>
+
         {% if error %}
         <p>{{ error }}</p>
         {% endif %}
+
+        <p>For now the data is displayed as a table below.  Visualisation coming soon!</p>
 
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped tablesorter">
