@@ -19,10 +19,13 @@
         <!-- Blog Sidebar Widgets Column -->
         <div class="col-md-4 sidebar">
 
-            <!-- Blog Categories Well -->
+            <!-- Blog Categories List group -->
             <div class="list-group">
                 <h4>Blog Categories</h4>
-                <a href="{% url 'blog:posts' %}" class="list-group-item">All</a>
+                <a href="{% url 'blog:posts' %}"
+                       class="list-group-item">All
+                        <span class="badge badge-default badge-pill">{{ post_count }}</span>
+                    </a>
                 {% for category in categories %}
                     <a href="{% url 'blog:category' name=category.name %}"
                        class="list-group-item">{{ category.name }}
@@ -31,7 +34,7 @@
                 {% endfor %}
             </div>
 
-            <!-- Blog Latest Posts Well -->
+            <!-- Blog Latest List group -->
             <div class="list-group">
                 <h4>Latest Posts</h4>
                 {% for post in latest %}

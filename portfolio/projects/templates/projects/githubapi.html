@@ -6,14 +6,18 @@
     <div class="container">
 
         <h2>GitHub User Data</h2>
-        <p>Query GitHub API using HTTP methods to retrieve data in JSON format.  Utilised Python Requests library</p>
+        <p>Query GitHub API to return user data</p>
         <br>
         <form class="form-inline" method="post" action="/projects/githubapi/">
             {% csrf_token %}
-            <input type="text" name="user" class="form-control" placeholder="Username e.g. gmojo" value="" required autofocus>
+            <input type="text" name="user" class="form-control" placeholder="Username e.g. gmojo" value="" required>
             <button class="btn btn-primary" type="submit">Get Data</button>
         </form>
         <br>
+
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
 
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped tablesorter">

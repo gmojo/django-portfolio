@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/railscasts.css' %}">
 
+    {% block addhead %}{% endblock %}
+
     <title> {% block title %}{{ title }}{% endblock %} </title>
 
 </head>

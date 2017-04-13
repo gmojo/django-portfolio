@@ -55,12 +55,12 @@
 
         {% for project in projects %}
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-4 col-md-2">
                 <a href="{% url 'projects:projectredirect' name=project.slug %}">
-                    <img class="img-responsive img-rounded" src="{{ project.image.url }}" alt="{{ project.name }}" width="175" height="175">
+                    <img class="img-responsive img-rounded center-block" src="{{ project.image.url }}" alt="{{ project.name }}" width="175" height="175">
                 </a>
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-8  col-md-10">
                 <h3><a href="{% url 'projects:projectredirect' name=project.slug %}">{{ project.name }}</a></h3>
                 <p>{{ project.description|safe|truncatewords_html:50 }}</p>
             </div>

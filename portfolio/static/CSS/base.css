@@ -42,6 +42,11 @@ p {
     line-height: 27px;
 }
 
+.v-center {
+   display: flex;
+   align-items: center;
+}
+
 .jumbohome {
     position: relative;
     background: url("../img/12.png") center center;
@@ -93,23 +98,6 @@ h2.sidelines:after {
 /* Blog styles */
 .date {
     font-style: italic;
-}
-/* ----------- */
-
-/* Projects - Center align the text within the three columns */
-.projects .col-md-4 {
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-}
-
-.projects h3 {
-    font-weight: normal;
-    text-align: center;
-}
-
-.projects .col-md-4 p {
-    margin-right: .75rem;
-    margin-left: .75rem;
 }
 
 /* links --------------------*/

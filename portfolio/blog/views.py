@@ -12,6 +12,7 @@ def tag(request, name):
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
     cat_count = Category.objects.all().annotate(catcount=Count('post'))
     tag_count = Tag.objects.all().annotate(tagcount=Count('post'))
+    post_count = Post.objects.count()
 
     paginator = Paginator(post_list, 5)
 
@@ -39,7 +40,8 @@ def tag(request, name):
         'latest': latest_list,
         'tag_count': tag_count,
         'categories': cat_count,
-        'page_range': page_range
+        'page_range': page_range,
+        'post_count': post_count
     })
 
 def category(request, name):
@@ -49,6 +51,7 @@ def category(request, name):
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
     cat_count = Category.objects.all().annotate(catcount=Count('post'))
     tag_count = Tag.objects.all().annotate(tagcount=Count('post'))
+    post_count = Post.objects.count()
 
     paginator = Paginator(post_list, 5)
 
@@ -76,7 +79,8 @@ def category(request, name):
         'latest': latest_list,
         'tag_count': tag_count,
         'categories': cat_count,
-        'page_range': page_range
+        'page_range': page_range,
+        'post_count': post_count
     })
 
 def posts(request):
@@ -85,6 +89,7 @@ def posts(request):
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
     cat_count = Category.objects.all().annotate(catcount=Count('post'))
     tag_count = Tag.objects.all().annotate(tagcount=Count('post'))
+    post_count = Post.objects.count()
 
     paginator = Paginator(post_list, 5)
 
@@ -112,7 +117,8 @@ def posts(request):
         'latest': latest_list,
         'categories': cat_count,
         'page_range': page_range,
-        'tag_count': tag_count
+        'tag_count': tag_count,
+        'post_count': post_count
     })
 
 def post_detail(request, pk, slug):
@@ -122,6 +128,7 @@ def post_detail(request, pk, slug):
     tags = Tag.objects.all()
     cat_count = Category.objects.all().annotate(catcount=Count('post'))
     tag_count = Tag.objects.all().annotate(tagcount=Count('post'))
+    post_count = Post.objects.count()
 
     return render(request, 'blog/post_detail.html', {
         'post': post,
@@ -129,5 +136,6 @@ def post_detail(request, pk, slug):
         'latest': latest_list,
         'tags': tags,
         'categories': cat_count,
-        'tag_count': tag_count
+        'tag_count': tag_count,
+        'post_count': post_count
         })

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block addhead %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <h2>Met Office Weather API</h2>
+        <br>
+        <form class="form-inline" method="post" action="/projects/weatherapi/">
+            {% csrf_token %}
+            <input type="text" name="location" class="form-control" placeholder="Location e.g. Cardiff" value="">
+            <button class="btn btn-primary" type="submit">Get Data</button>
+        </form>
+        <br>
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped tablesorter">
+                <thead>
+                    <tr>
+                        <th class="header"> Date <i class="icon-sort"></i></th>
+                        <th class="header"> Temp Max (&#8451;) <i class="icon-sort"></i></th>
+                        <th class="header"> Temp Min (&#8451;) <i class="icon-sort"></i></th>
+                        <th class="header"> Wind Avg (Mph) <i class="icon-sort"></i></th>
+                        <th class="header"> Rain (% Chance) <i class="icon-sort"></i></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for key in data %}
+                    <tr>
+                        <td>{{ key.Date }}</td>
+                        <td>{{ key.TempMax }}</td>
+                        <td>{{ key.TempMin }}</td>
+                        <td>{{ key.Wind }}</td>
+                        <td>{{ key.Rain }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+        <small>
+            <h5>References: </h5>
+            <ul>
+                <li><a href="http://www.metoffice.gov.uk/datapoint/">http://www.metoffice.gov.uk/datapoint/</a></li>
+            </ul>
+        </small>
+
+    </div>
+
+
+{% endblock %}
