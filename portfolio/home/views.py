@@ -15,7 +15,7 @@ def search(request):
 
 
 def home(request):
-    title_text = 'Home - GarethMoger.com'
+    title_text = 'GarethMoger.com - Data & Development'
     post_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:2]
     projects = Projects.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:3]
     return render(request, 'home/home.html', {'posts': post_list, 'title': title_text, 'projects': projects})
