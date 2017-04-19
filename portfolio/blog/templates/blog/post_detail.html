@@ -14,10 +14,10 @@
     <br>
     <p>{{ post.text|safe }}</p>
     <hr>
-    <p>Category: <a href="{% url 'blog:category' name=post.category %}">{{ post.category }}</a></p>
+    <p>Category: <a href="{% url 'blog:posts' cat=post.category %}">{{ post.category }}</a></p>
     <p>Tags:
         {% for tag in post.tags.all %}
-            <a href="{% url 'blog:tag' name=tag %}">{{ tag }}</a>
+            <a href="{% url 'blog:posts' tag=tag %}">{{ tag }}</a>
         {% endfor %}
     </p>
     <br>

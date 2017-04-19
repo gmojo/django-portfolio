@@ -6,25 +6,29 @@
     <div class="container">
 
         <h2 class="sidelines">Search Results</h2>
-        {% for result in results %}
-            <h3><a href="{% url 'blog:post_detail' pk=result.pk slug=result.slug %}">{{ result.title }}</a></h3>
-            <div class="date">
-                <p><span class="fa fa-clock-o"></span> {{ result.published_date }} </p>
-            </div>
-            <div class="blogtext">
-                {{ result.text|safe|truncatewords_html:50 }}
-            </div>
-            <p>Category: <a href="{% url 'blog:category' name=result.category %}">{{ result.category }}</a>
-            <br>
-                Tags:
-                {% for tag in result.tags.all %}
-                    <a href="{% url 'blog:tag' name=tag %}">{{ tag }}</a>
-                {% endfor %}
-            </p>
-            <hr>
-        {% endfor %}
+
+        {% if results %}
+            {% for result in results %}
+                <h3><a href="{% url 'blog:post_detail' pk=result.pk slug=result.slug %}">{{ result.title }}</a></h3>
+                <div class="date">
+                    <p><span class="fa fa-clock-o"></span> {{ result.published_date }} </p>
+                </div>
+                <div class="blogtext">
+                    {{ result.text|safe|truncatewords_html:50 }}
+                </div>
+                <p>Category: <a href="{% url 'blog:posts' cat=result.category %}">{{ result.category }}</a>
+                <br>
+                    Tags:
+                    {% for tag in result.tags.all %}
+                        <a href="{% url 'blog:posts' tag=tag %}">{{ tag }}</a>
+                    {% endfor %}
+                </p>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>No results found</p>
+        {% endif %}
 
     </div>
-
 
 {% endblock %}
