@@ -8,6 +8,7 @@ import pandas as pd
 
 def weatherapi(request):
     title_text = 'Weather API - GarethMoger.com'
+    description = Projects.objects.get(slug='weatherapi').description
 
     table_data = []
     if request.method == 'POST':
@@ -57,7 +58,11 @@ def weatherapi(request):
 
         table_data.extend(json.loads(df_agg.reset_index().to_json(orient='records')))
 
-    return render(request, 'projects/weatherapi.html', {'data': table_data, 'title': title_text,})
+    return render(request, 'projects/weatherapi.html', {
+        'data': table_data,
+        'title': title_text,
+        'description': description
+    })
 
 
 def projectredirect(name):
@@ -66,11 +71,17 @@ def projectredirect(name):
 
 def projects(request):
     title_text = 'Projects - GarethMoger.com'
+    description = 'My latest projects on the quest to further my data analysis and web development skills'
     projects = Projects.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, 'projects/projects.html', {'title': title_text, 'projects': projects})
+    return render(request, 'projects/projects.html', {
+        'title': title_text,
+        'projects': projects,
+        'description': description
+    })
 
 def githubapi(request):
     title_text = 'GitHub API - GarethMoger.com'
+    description = Projects.objects.get(slug='githubapi').description
 
     parsedData = []
     if request.method == 'POST':
@@ -94,4 +105,8 @@ def githubapi(request):
             userData['followers'] = data['followers']
             userData['following'] = data['following']
         parsedData.append(userData)
-    return render(request, 'projects/githubapi.html', {'data': parsedData, 'title': title_text})
+    return render(request, 'projects/githubapi.html', {
+        'data': parsedData,
+        'title': title_text,
+        'description': description
+    })

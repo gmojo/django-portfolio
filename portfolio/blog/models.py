@@ -11,6 +11,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
+    description = models.TextField(default='GarethMoger.com Blog')
     headimage = models.ImageField(default='stockblog1.jpeg')
     text = RichTextUploadingField()
     category = models.ForeignKey('Category')

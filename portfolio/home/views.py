@@ -10,24 +10,38 @@ from .forms import ContactForm
 
 def search(request):
     query = request.GET.get('query')
+    title = 'Search: ' + query
+    description = 'Search results'
     results = Post.objects.filter(Q(title__icontains=query) | Q(text__icontains=query)).order_by('-published_date')
-    return render(request, 'home/search.html', {'results': results})
+    return render(request, 'home/search.html', {
+        'results': results,
+        'title': title,
+        'description': description
+    })
 
 
 def home(request):
     title_text = 'GarethMoger.com - Data & Development'
+    description = 'Data & Development - Building skills together in data analysis and software development'
     post_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:2]
     projects = Projects.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:3]
-    return render(request, 'home/home.html', {'posts': post_list, 'title': title_text, 'projects': projects})
+    return render(request, 'home/home.html', {
+        'posts': post_list,
+        'title': title_text,
+        'projects': projects,
+        'description': description
+    })
 
 
 def about(request):
     title_text = 'About - GarethMoger.com'
-    return render(request, 'home/about.html', {'title': title_text})
+    description = "I support the full developement cycle of corporate systems and provide key information from them, utilising SQL, Python, database knowledge and analysis techniques. Currently I am interested in managing and visualising data online using Python's Django framework from which to build on."
+    return render(request, 'home/about.html', {'title': title_text, 'description': description})
 
 
 def contact(request):
     title_text = 'Contact - GarethMoger.com'
+    description = 'Contact me on the form or via the social media links at the top of the page'
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -47,7 +61,7 @@ def contact(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('./thanks/')
-    return render(request, 'home/contact.html', {'title': title_text, 'form': form})
+    return render(request, 'home/contact.html', {'title': title_text, 'form': form, 'description': description})
 
 
 def thanks(request):

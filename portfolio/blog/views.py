@@ -7,6 +7,7 @@ from django.utils import timezone
 
 def tag(request, name):
     title_text = name + ' - GarethMoger.com'
+    description = 'My latest blog posts to share knowledge and ideas in data analysis and web development'
     tagPK = Tag.objects.only('pk').get(slug=name).id
     post_list = Post.objects.filter(tags=tagPK).order_by('-published_date')
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
@@ -41,11 +42,13 @@ def tag(request, name):
         'tag_count': tag_count,
         'categories': cat_count,
         'page_range': page_range,
-        'post_count': post_count
+        'post_count': post_count,
+        'description': description
     })
 
 def category(request, name):
     title_text = name + ' - GarethMoger.com'
+    description = 'My latest blog posts to share knowledge and ideas in data analysis and web development'
     catPK = Category.objects.only('pk').get(name=name).id
     post_list = Post.objects.filter(category=catPK).order_by('-published_date')
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
@@ -80,11 +83,13 @@ def category(request, name):
         'tag_count': tag_count,
         'categories': cat_count,
         'page_range': page_range,
-        'post_count': post_count
+        'post_count': post_count,
+        'description': description
     })
 
 def posts(request):
     title_text = 'Blog - GarethMoger.com'
+    description = 'My latest blog posts to share knowledge and ideas in data analysis and web development'
     post_list = Post.objects.all().order_by('-published_date')
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
     cat_count = Category.objects.all().annotate(catcount=Count('post'))
@@ -118,11 +123,13 @@ def posts(request):
         'categories': cat_count,
         'page_range': page_range,
         'tag_count': tag_count,
-        'post_count': post_count
+        'post_count': post_count,
+        'description': description
     })
 
 def post_detail(request, pk, slug):
     title_text = Post.objects.only('pk').get(pk=pk).title
+    description = Post.objects.only('pk').get(pk=pk).description
     latest_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
     post = get_object_or_404(Post, pk=pk)
     tags = Tag.objects.all()
@@ -137,5 +144,6 @@ def post_detail(request, pk, slug):
         'tags': tags,
         'categories': cat_count,
         'tag_count': tag_count,
-        'post_count': post_count
+        'post_count': post_count,
+        'description': description
         })
