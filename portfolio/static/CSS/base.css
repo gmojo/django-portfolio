@@ -49,7 +49,7 @@ p {
 
 .jumbohome {
     position: relative;
-    background: url("../img/12.png") center center;
+    background: url("../img/12-min.jpg") center center;
     background-size: cover;
     overflow: hidden;
     color: whitesmoke;
@@ -61,7 +61,7 @@ p {
 
 .jumboabout {
     position: relative;
-    background: url("../img/4.png") center center;
+    background: url("../img/4-min.png") center center;
     background-size: cover;
     overflow: hidden;
     color: whitesmoke;
