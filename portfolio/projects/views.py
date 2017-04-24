@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.utils import timezone
+from datetime import datetime, timedelta
 from .models import Projects
 import requests
 from string import capwords
@@ -11,6 +12,11 @@ def weatherapi(request):
     description = Projects.objects.get(slug='weatherapi').description
 
     table_data = []
+    chart_labels = []
+    chart_temp = []
+    chart_rain = []
+    chart_wind = []
+
     if request.method == 'POST':
         form_site = request.POST.get('location')
 
@@ -46,6 +52,12 @@ def weatherapi(request):
                 forecast['Rain'] = int(instance['Pp'])
                 parsedData.append(forecast)
 
+                calc_time = datetime.strptime(day['value'][0:10], "%Y-%m-%d") + timedelta(minutes=int(instance['$']))
+                chart_labels.append(calc_time.strftime("%d/%m/%Y %H:%M"))
+                chart_temp.append(int(instance['T']))
+                chart_wind.append(int(instance['S']))
+                chart_rain.append(int(instance['Pp']))
+
         df = pd.DataFrame(parsedData)
         df_agg = df.groupby('Date').agg({
             'TempMax': 'max',
@@ -61,7 +73,11 @@ def weatherapi(request):
     return render(request, 'projects/weatherapi.html', {
         'data': table_data,
         'title': title_text,
-        'description': description
+        'description': description,
+        'labels': chart_labels,
+        'temp_data': chart_temp,
+        'rain_data': chart_rain,
+        'wind_data': chart_wind
     })
 
 
