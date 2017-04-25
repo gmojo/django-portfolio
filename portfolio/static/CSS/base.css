@@ -59,14 +59,6 @@ p {
     font-weight: bold !important;
 }
 
-.jumboabout {
-    position: relative;
-    background: url("../img/4-min.png") center center;
-    background-size: cover;
-    overflow: hidden;
-    color: whitesmoke;
-}
-
 /* lines to side of headings */
 h2.sidelines {
     overflow: hidden;

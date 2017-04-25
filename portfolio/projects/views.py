@@ -11,38 +11,47 @@ def weatherapi(request):
     title_text = 'Weather API - GarethMoger.com'
     description = Projects.objects.get(slug='weatherapi').description
 
+    #lists for passing to template
     table_data = []
-    chart_labels = []
-    chart_temp = []
-    chart_rain = []
-    chart_wind = []
+    chart_data = []
 
     if request.method == 'POST':
         form_site = request.POST.get('location')
 
+        #get and parse site list for location lookup
         sitelist = requests.get('http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/sitelist?key=9f60b7c4-c1b8-4c99-beb3-0c0b697ea587')
         site_ids = sitelist.json()['Locations']['Location']
 
+        #use input location to search for site ID
         site_id = ''
         for site in site_ids:
             if capwords(form_site) in site['name']:
                 site_id += str(site['id'])
                 break
 
+        #if after search the site_id list is empty then return an error
         if not site_id:
             error = 'Location not found'
             return render(request, 'projects/weatherapi.html',
                           {'data': table_data, 'title': title_text, 'error': error})
 
+        #get forecast data with site ID
         request_json = requests.get(
             'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/' +
             site_id +
             '?res=3hourly&key=9f60b7c4-c1b8-4c99-beb3-0c0b697ea587')
 
+        #strip json data
         period = request_json.json()['SiteRep']['DV']['Location']['Period']
 
         parsedData = []
         for day in period:
+            list_item = {}
+            list_item['Date'] = day['value'][0:10]
+            list_item['Labels'] = []
+            list_item['TempData'] = []
+            list_item['RainData'] = []
+            chart_data.append(list_item)
             for instance in day['Rep']:
                 forecast = {}
                 forecast['Date'] = day['value'][0:10]
@@ -53,11 +62,12 @@ def weatherapi(request):
                 parsedData.append(forecast)
 
                 calc_time = datetime.strptime(day['value'][0:10], "%Y-%m-%d") + timedelta(minutes=int(instance['$']))
-                chart_labels.append(calc_time.strftime("%d/%m/%Y %H:%M"))
-                chart_temp.append(int(instance['T']))
-                chart_wind.append(int(instance['S']))
-                chart_rain.append(int(instance['Pp']))
+                list_item['Labels'].append(calc_time.strftime("%H:%M"))
+                list_item['TempData'].append(instance['T'])
+                list_item['RainData'].append(instance['Pp'])
 
+
+        #use pandas to aggregate data
         df = pd.DataFrame(parsedData)
         df_agg = df.groupby('Date').agg({
             'TempMax': 'max',
@@ -74,10 +84,7 @@ def weatherapi(request):
         'data': table_data,
         'title': title_text,
         'description': description,
-        'labels': chart_labels,
-        'temp_data': chart_temp,
-        'rain_data': chart_rain,
-        'wind_data': chart_wind
+        'chart_data': chart_data
     })
 
 

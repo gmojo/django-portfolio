@@ -11,6 +11,7 @@
 
         <h2>Met Office Weather API</h2>
         <br>
+        <p>Enter UK town or city for the 5 day weather forecast</p>
         <form class="form-inline" method="post" action="/projects/weatherapi/">
             {% csrf_token %}
             <input type="text" name="location" class="form-control" placeholder="Location e.g. Cardiff" value="">
@@ -23,36 +24,46 @@
         {% endif %}
 
         <div class="panel panel-success">
-            <div class="panel-heading">5 Day Temperature Forecast</div>
             <div class="panel-body">
-                <canvas id="forecast" width="300" height="50"></canvas>
+                <canvas id="{{ chart_data.0.Date }}" width="300" height="50"></canvas>
+            </div>
+
+             <div class="panel-footer panel-success">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    {% for dict in chart_data %}
+                        <div class="btn-group" role="group">
+                            <button id="{{ dict.Date }}" type="button" class="btn btn-success">{{ dict.Date }}</button>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
         <script>
-            var ctx = document.getElementById('forecast').getContext('2d');
-            var forecast = new Chart(ctx, {
+            var canvas_id = {{ chart_data.0.Date }};
+            var ctx = document.getElementById("{{ chart_data.0.Date }}").getContext('2d');
+            var canvas_id = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: [{% for item in labels %} "{{ item }}", {% endfor %}],
+                    labels: {{ chart_data.0.Labels|safe }},
                     datasets: [
                         {
                             type: 'line',
-                            label: "Temperature",
+                            label: "Temperature (Celsius)",
                             yAxisID: "y-axis-0",
                             fill: false,
-                            backgroundColor: "rgba(75,192,192,0.4)",
-                            borderColor: "rgba(75,192,192,1)",
+                            backgroundColor: "rgba(246, 250, 20, 0.7)",
+                            borderColor: "rgba(246, 250, 20, 1)",
                             borderJoinStyle: 'miter',
-                            pointBorderColor: "rgba(75,192,192,1)",
-                            pointBackgroundColor: "#fff",
-                            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                            pointBorderColor: "rgba(246, 250, 20, 1)",
+                            pointBackgroundColor: "rgba(14, 14, 0, 0.7)",
+                            pointHoverBackgroundColor: "rgba(246, 250, 20, 1)",
                             pointHoverBorderColor: "rgba(220,220,220,1)",
-                            data: [{% for item in temp_data %} "{{ item }}", {% endfor %}],
+                            data: {{ chart_data.0.TempData|safe }},
                         },
                         {
                             type: 'bar',
-                            label: "Percipitation",
+                            label: "Precipitation (%)",
                             yAxisID: "y-axis-1",
                             backgroundColor: "rgba(75,192,192,0.4)",
                             borderColor: "rgba(75,192,192,1)",
@@ -61,7 +72,7 @@
                             pointBackgroundColor: "#fff",
                             pointHoverBackgroundColor: "rgba(75,192,192,1)",
                             pointHoverBorderColor: "rgba(220,220,220,1)",
-                            data: [{% for item in rain_data %} "{{ item }}", {% endfor %}],
+                            data: {{ chart_data.0.RainData|safe }},
                         }]
                     },
                 options: {
@@ -71,16 +82,29 @@
                     scales: {
                         yAxes: [{
                             position: "left",
-                            "id": "y-axis-0"
+                            "id": "y-axis-0",
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                suggestedMin: 0,
+                                suggestedMax: 30
+                            }
                         }, {
                             position: "right",
-                            "id": "y-axis-1"
+                            "id": "y-axis-1",
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                min: 0,
+                                max: 100
+                            }
                         }]
                     }
                 }
             });
         </script>
-
 
         <br>
         <div class="table-responsive">
@@ -91,7 +115,7 @@
                         <th class="header"> Temp Max (&#8451;) <i class="icon-sort"></i></th>
                         <th class="header"> Temp Min (&#8451;) <i class="icon-sort"></i></th>
                         <th class="header"> Wind Avg (Mph) <i class="icon-sort"></i></th>
-                        <th class="header"> Rain (% Chance) <i class="icon-sort"></i></th>
+                        <th class="header"> Precipitation (%) <i class="icon-sort"></i></th>
                     </tr>
                 </thead>
 
