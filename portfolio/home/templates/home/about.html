@@ -3,112 +3,43 @@
 
 {% block content %}
 
-    <div class="jumbotron jumboabout">
+    <div class="container">
+        <br>
+        <img class="img-responsive img-circle center-block" src="{% static 'img/MeNepal.jpg' %}" alt="Me" width="240" height="240">
+        <h2 class="sidelines">About me</h2>
+        <p>I support the full developement cycle of corporate systems and provide key information from them, utilising SQL, Python,
+            database knowledge and analysis techniques.  Currently I am interested in managing and visualising data online using Python's
+            Django framework from which to build on.
+        </p>
+        <p>Personal interests include yoga, meditation, weight lifting and cooking</p>
+        <p>
+            I like to travel and have spent extended periods away in places like India, Nepal and South East Asia.
+            This picture above is me at the Thorong-La pass In Nepal at 5500m.
+        </p>
+    </div>
+
+    <div class="container">
+        <h2 class="sidelines">Experience</h2>
+        <p>I have worked in the health care and higher education sector for the last 10 years as data analyst and systems administrator.
+            These roles have had varied responsibilities including systems development, server administration, statistics and dashboard development.
+        </p>
+    </div>
+    <br>
+
+    <div class="container">
+        <h2 class="sidelines">Technical Skills</h2>
         <div class="row">
-
-            <div class="container">
-                <div class="col-sm-3 col-md-3">
-                     <img class="img-responsive img-rounded center-block" src="{% static 'img/moon.jpg' %}" alt="Me" width="240" height="240">
-                </div>
-                <div class="col-sm-9 col-md-9 vcenter">
-                    <p class="jumbolead">I support the full developement cycle of corporate systems
-                        and provide key information from them, utilising SQL, Python, database knowledge and analysis
-                        techniques.
-                    </p>
-                    <p class="jumbolead">Currently I am interested in managing and visualising data online using Python's
-                        Django framework from which to build on.
-                    </p>
-                </div>
+            <div class="col-md-4">
+                <h3>Software & Database:</h3>
+                <p>SQL Server, PostgreSQL, BusinessObjects, Tableau</p>
             </div>
-
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="jumbotron aboutpage">
-            <h2 class="sidelines">Experience</h2>
-            <div class="row">
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <h3>Cardiff & Kingston Universities</h3>
-                    <ul>
-                        <li>Data analysis</li>
-                        <li>Systems analysis</li>
-                        <li>Server administration</li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <h3>Welsh Government</h3>
-                    <ul>
-                        <li>Data analysis</li>
-                        <li>Health data</li>
-                        <li>Dashboard development</li>
-                        <li>Statistics</li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <h3>Cardiff & Vale NHS</h3>
-                    <ul>
-                        <li>Workforce analysis</li>
-                        <li>Staff training</li>
-                        <li>Configure payroll API</li>
-                    </ul>
-                </div>
+            <div class="col-md-4">
+                <h3>Languages:</h3>
+                <p>HTML, CSS, JavaScript, Python, SQL, VBA</p>
             </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="jumbotron aboutpage">
-            <h2 class="sidelines">Technical Skills</h2>
-            <div class="row">
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <h3>Software & Database:</h3>
-                    <ul>
-                        <li>SQL Server</li>
-                        <li>PostgreSQL</li>
-                        <li>BusinessObjects</li>
-                        <li>Tableau</li>
-                        <li>Pandas</li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <h3>Languages:</h3>
-                    <ul>
-                        <li>HTML/CSS</li>
-                        <li>JavaScript</li>
-                        <li>Python</li>
-                        <li>SQL</li>
-                        <li>VBA</li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <h3>Frameworks, Libraries & Tools:</h3>
-                    <ul>
-                        <li>Django</li>
-                        <li>Bootstrap</li>
-                        <li>Git & GitHub</li>
-                        <li>Matplotlib</li>
-                        <li>Pandas</li>
-                        <li>NumPy</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="jumbotron aboutpage">
-            <h2 class="sidelines">About Me</h2>
-            <div class="row">
-                 <div class="col-sm-4">
-                     <img class="img-responsive img-rounded center-block" src="{% static 'img/MeNepal.jpg' %}" alt="Me" width="240" height="240">
-                 </div>
-                <div class="col-sm-8">
-                    <p>Personal interests include yoga, meditation, weight lifting, cooking...</p>
-                    <p>I like to travel and have spent extended periods away in places like India, Nepal and South East Asia.
-                        This picture to the left is of me at the Thorong-La pass In Nepal at 5500m.
-                    </p>
-                </div>
+            <div class="col-md-4">
+                <h3>Frameworks, Libraries & Tools:</h3>
+                <p>Django, Bootstrap, Git & gitHub, Numpy, Pandas</p>
             </div>
         </div>
     </div>
