@@ -24,9 +24,11 @@ def weatherapi(request):
 
         #use input location to search for site ID
         site_id = ''
+        site_name = ''
         for site in site_ids:
             if capwords(form_site) in site['name']:
                 site_id += str(site['id'])
+                site_name += str(site['name'])
                 break
 
         #if after search the site_id list is empty then return an error
@@ -47,7 +49,8 @@ def weatherapi(request):
         parsedData = []
         for day in period:
             list_item = {}
-            list_item['Date'] = day['value'][0:10]
+            calc_date = datetime.strptime(day['value'][0:10], "%Y-%m-%d")
+            list_item['Date'] = calc_date.strftime("%a %d %B")
             list_item['Labels'] = []
             list_item['TempData'] = []
             list_item['RainData'] = []
@@ -82,6 +85,7 @@ def weatherapi(request):
 
     return render(request, 'projects/weatherapi.html', {
         'data': table_data,
+        'site_name': site_name,
         'title': title_text,
         'description': description,
         'chart_data': chart_data

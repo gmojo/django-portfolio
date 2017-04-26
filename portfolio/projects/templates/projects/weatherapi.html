@@ -23,16 +23,20 @@
         <p>{{ error }}</p>
         {% endif %}
 
+        {% if site_name %}
+        <p>Showing results for {{ site_name }}</p>
+        {% endif %}
+
         <div class="panel panel-success">
             <div class="panel-body">
-                <canvas id="{{ chart_data.0.Date }}" width="300" height="50"></canvas>
+                <canvas id="forecast" width="300" height="50"></canvas>
             </div>
 
              <div class="panel-footer panel-success">
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     {% for dict in chart_data %}
                         <div class="btn-group" role="group">
-                            <button id="{{ dict.Date }}" type="button" class="btn btn-success">{{ dict.Date }}</button>
+                            <button id="{{ forloop.counter0 }}" type="button" class="btn btn-success"><strong>{{ dict.Date }}</strong></button>
                         </div>
                     {% endfor %}
                 </div>
@@ -40,13 +44,13 @@
         </div>
 
         <script>
-            var canvas_id = {{ chart_data.0.Date }};
-            var ctx = document.getElementById("{{ chart_data.0.Date }}").getContext('2d');
-            var canvas_id = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: {{ chart_data.0.Labels|safe }},
-                    datasets: [
+            var chart_labels = {{ chart_data.0.Labels|safe }};
+            var temp_dataset = {{ chart_data.0.TempData|safe }};
+            var rain_dataset = {{ chart_data.0.RainData|safe }};
+
+            var ctx = document.getElementById("forecast").getContext('2d');
+
+            var datasets = [
                         {
                             type: 'line',
                             label: "Temperature (Celsius)",
@@ -59,7 +63,7 @@
                             pointBackgroundColor: "rgba(14, 14, 0, 0.7)",
                             pointHoverBackgroundColor: "rgba(246, 250, 20, 1)",
                             pointHoverBorderColor: "rgba(220,220,220,1)",
-                            data: {{ chart_data.0.TempData|safe }},
+                            data: temp_dataset,
                         },
                         {
                             type: 'bar',
@@ -72,12 +76,18 @@
                             pointBackgroundColor: "#fff",
                             pointHoverBackgroundColor: "rgba(75,192,192,1)",
                             pointHoverBorderColor: "rgba(220,220,220,1)",
-                            data: {{ chart_data.0.RainData|safe }},
+                            data: rain_dataset,
                         }]
+
+            var config = {
+                type: 'bar',
+                data: {
+                    labels: chart_labels,
+                    datasets: datasets
                     },
                 options: {
                     legend: {
-                        display: true
+                        display: false
                     },
                     scales: {
                         yAxes: [{
@@ -103,10 +113,60 @@
                         }]
                     }
                 }
+            };
+
+            var forecast_chart = new Chart(ctx, config);
+
+            $("#0").click(function() {
+                var data = forecast_chart.config.data;
+                data.datasets[0].data = temp_dataset;
+                data.datasets[1].data = rain_dataset;
+                data.labels = chart_labels;
+                forecast_chart.update();
             });
+            $("#1").click(function() {
+                var chart_labels = {{ chart_data.1.Labels|safe }};
+                var temp_dataset = {{ chart_data.1.TempData|safe }};
+                var rain_dataset = {{ chart_data.1.RainData|safe }};
+                var data = forecast_chart.config.data;
+                data.datasets[0].data = temp_dataset;
+                data.datasets[1].data = rain_dataset;
+                data.labels = chart_labels;
+                forecast_chart.update();
+            });
+            $("#2").click(function() {
+                var chart_labels = {{ chart_data.2.Labels|safe }};
+                var temp_dataset = {{ chart_data.2.TempData|safe }};
+                var rain_dataset = {{ chart_data.2.RainData|safe }};
+                var data = forecast_chart.config.data;
+                data.datasets[0].data = temp_dataset;
+                data.datasets[1].data = rain_dataset;
+                data.labels = chart_labels;
+                forecast_chart.update();
+            });
+            $("#3").click(function() {
+                var chart_labels = {{ chart_data.3.Labels|safe }};
+                var temp_dataset = {{ chart_data.3.TempData|safe }};
+                var rain_dataset = {{ chart_data.3.RainData|safe }};
+                var data = forecast_chart.config.data;
+                data.datasets[0].data = temp_dataset;
+                data.datasets[1].data = rain_dataset;
+                data.labels = chart_labels;
+                forecast_chart.update();
+            });
+            $("#4").click(function() {
+                var chart_labels = {{ chart_data.4.Labels|safe }};
+                var temp_dataset = {{ chart_data.4.TempData|safe }};
+                var rain_dataset = {{ chart_data.4.RainData|safe }};
+                var data = forecast_chart.config.data;
+                data.datasets[0].data = temp_dataset;
+                data.datasets[1].data = rain_dataset;
+                data.labels = chart_labels;
+                forecast_chart.update();
+            });
+
         </script>
 
-        <br>
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped tablesorter">
                 <thead>
