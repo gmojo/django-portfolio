@@ -14,6 +14,7 @@ def weatherapi(request):
     #lists for passing to template
     table_data = []
     chart_data = []
+    site_name = ''
 
     if request.method == 'POST':
         form_site = request.POST.get('location')
@@ -24,7 +25,6 @@ def weatherapi(request):
 
         #use input location to search for site ID
         site_id = ''
-        site_name = ''
         for site in site_ids:
             if capwords(form_site) in site['name']:
                 site_id += str(site['id'])
