@@ -13,7 +13,7 @@ html,body
 }
 
 /* Social buttons */
-#social_list li
+.social_list li
 {
     display: inline;
     list-style-type: none;
