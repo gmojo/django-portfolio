@@ -13,8 +13,7 @@ html,body
 }
 
 /* Social buttons */
-.social_list li
-{
+.social_list li {
     display: inline;
     list-style-type: none;
     padding-right: 20px;
@@ -150,4 +149,8 @@ a.btn-success {
 .blogdivimage {
     display:block;
     text-align:center
+}
+#devicons {
+    font-size: 60px;
+    color: #eab552;
 }

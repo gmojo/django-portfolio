@@ -1,30 +1,22 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block addhead %}<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">{% endblock %}
+
 {% block content %}
 
     <div class="container">
         <br>
         <img class="img-responsive img-circle center-block" src="{% static 'img/MeNepal.jpg' %}" alt="Me" width="240" height="240">
         <h2 class="sidelines">About me</h2>
-        <p>I support the full developement cycle of corporate systems and provide key information from them, utilising SQL, Python,
-            database knowledge and analysis techniques.  Currently I am interested in managing and visualising data online using Python's
-            Django framework from which to build on.
+        <p>I support the full developement cycle of enterprise systems and provide key information from them, utilising SQL, Python,
+            database knowledge and analysis methodologies.
         </p>
-        <p>Personal interests include yoga, meditation, weight lifting and cooking</p>
-        <p>
-            I like to travel and have spent extended periods away in places like India, Nepal and South East Asia.
-            This picture above is me at the Thorong-La pass In Nepal at 5500m.
-        </p>
-    </div>
-
-    <div class="container">
-        <h2 class="sidelines">Experience</h2>
-        <p>I have worked in the health care and higher education sector for the last 10 years as data analyst and systems administrator.
+        <p>I have worked in the health care and higher education sector for the last 10 years as a data and systems analyst.
             These roles have had varied responsibilities including systems development, server administration, statistics and dashboard development.
         </p>
+        <p>Currently I am building my web developement skills to manage and visualise data online using Python's Django framework.</p>
     </div>
-    <br>
 
     <div class="container">
         <h2 class="sidelines">Technical Skills</h2>
@@ -42,6 +34,20 @@
                 <p>Django, Bootstrap, Git & gitHub, Numpy, Pandas</p>
             </div>
         </div>
+        <br>
+        <div class="row text-center">
+            <div id="devicons">
+                <i class="devicon-python-plain-wordmark"></i>
+                <i class="devicon-django-plain-wordmark"></i>
+                <i class="devicon-html5-plain-wordmark"></i>
+                <i class="devicon-css3-plain-wordmark"></i>
+                <i class="devicon-javascript-plain"></i>
+                <i class="devicon-jquery-plain-wordmark"></i>
+                <i class="devicon-postgresql-plain-wordmark"></i>
+                <i class="devicon-git-plain-wordmark"></i>
+            </div>
+        </div>
+
     </div>
 
 {% endblock %}
