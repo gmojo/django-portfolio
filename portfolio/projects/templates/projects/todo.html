@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block addhead %}
+
+<style>
+    .checked {
+      background: #888;
+      color: #fff;
+      text-decoration: line-through;
+    }
+    ul li {
+        cursor: pointer;
+    }
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1 class="text-center">Todo List</h1>
+                <div>
+                    <input class="form-control input-md" id="addTodoTextInput" type="text" placeholder="What do you need to do...">
+                </div>
+
+                <div>
+                    <button class="btn" onclick="handlers.toggleAll()">Toggle All</button>
+                </div>
+
+                <div>
+                    <button class="btn" onclick="handlers.changeTodo()">Change Todo</button>
+                    <input id="changeTodoPositionInput" type="number">
+                    <input id="changeTodoTextInput" type="text">
+                </div>
+
+                <div>
+                    <button class="btn" onclick="handlers.toggleCompleted()">Toggle Completed</button>
+                    <input id="toggleCompletedPositionInput" type="number">
+                </div>
+
+                <ul id="todos" class="list-group">
+                </ul>
+
+            </div>
+        </div>
+
+        <hr>
+        <small>
+            <h5>Notes & Reference: </h5>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </small>
+
+    </div>
+
+{% block javascript %}
+<script src="{% static 'JS/todoapp.js' %}"></script>
+{% endblock %}
+
+{% endblock %}

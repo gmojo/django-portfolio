@@ -137,3 +137,11 @@ def githubapi(request):
         'title': title_text,
         'description': description
     })
+
+def todo(request):
+    title_text = 'Todo List - GarethMoger.com'
+    description = 'Todo list app using vanilla JavaScript'
+    return render(request, 'projects/todo.html', {
+        'title': title_text,
+        'description': description
+    })
