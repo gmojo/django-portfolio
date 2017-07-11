@@ -78,6 +78,10 @@ var handlers = {
     deleteAll: function() {
         todoList.todos.length = 0;
         view.displayTodos();
+    },
+    addTodoClick: function() {
+        var addTodoTextInput = document.getElementById("addTodoTextInput");
+        handlers.addTodo(addTodoTextInput);
     }
 };
 
