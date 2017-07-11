@@ -5,8 +5,8 @@
 
 <style>
     .checked {
-      background: #888;
-      color: #fff;
+      background: lightgrey;
+      color: red;
       text-decoration: line-through;
     }
     ul li {
@@ -22,25 +22,21 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h1 class="text-center">Todo List</h1>
-                <div>
+            <div class="col-md-6">
+                <h1>Todo List</h1>
+
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn" onclick="handlers.toggleAll()">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </button>
+                    </span>
                     <input class="form-control input-md" id="addTodoTextInput" type="text" placeholder="What do you need to do...">
-                </div>
-
-                <div>
-                    <button class="btn" onclick="handlers.toggleAll()">Toggle All</button>
-                </div>
-
-                <div>
-                    <button class="btn" onclick="handlers.changeTodo()">Change Todo</button>
-                    <input id="changeTodoPositionInput" type="number">
-                    <input id="changeTodoTextInput" type="text">
-                </div>
-
-                <div>
-                    <button class="btn" onclick="handlers.toggleCompleted()">Toggle Completed</button>
-                    <input id="toggleCompletedPositionInput" type="number">
+                    <span class="input-group-btn">
+                        <button class="btn" onclick="handlers.deleteAll()">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        </button>
+                    </span>
                 </div>
 
                 <ul id="todos" class="list-group">
@@ -53,15 +49,14 @@
         <small>
             <h5>Notes & Reference: </h5>
             <ul>
-                <li></li>
-                <li></li>
+                <li>Created with vailla JS only</li>
+                <li><a href="http://todomvc.com/">http://todomvc.com/</a></li>
+                <li><a href="https://watchandcode.com">https://watchandcode.com</a>/</li>
             </ul>
         </small>
 
     </div>
 
-{% block javascript %}
 <script src="{% static 'JS/todoapp.js' %}"></script>
-{% endblock %}
 
 {% endblock %}

@@ -11,6 +11,10 @@
     <meta http-equiv="Content-Language" content="en">
     <meta name="description" content="{{ description }}">
 
+    <link rel="icon" type="image/png" href="{% static 'img/favicon-16x16.png' %}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon-32x32.png' %}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon-96x96.png' %}" sizes="96x96">
+
     {% block addhead %}{% endblock %}
 
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
@@ -70,6 +74,7 @@
                                 <li><a href="{% url 'projects:projects' %}">All</a></li>
                                 <li><a href="{% url 'projects:weatherapi' %}">Weather App</a></li>
                                 <li><a href="{% url 'projects:githubapi' %}">GitHub API</a></li>
+                                <li><a href="{% url 'projects:todo' %}">Todo List</a></li>
                             </ul>
                     </li>
                     <li {% if "/about/" in request.path %}class="active"{% endif %}><a href="{% url 'home:about' %}">ABOUT</a></li>
