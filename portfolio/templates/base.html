@@ -74,9 +74,10 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="projects">PROJECTS<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{% url 'projects:projects' %}">All</a></li>
+                                <li><a href="{% url 'projects:todo' %}">Todo List</a></li>
+                                <li><a href="{% url 'projects:calculator' %}">JavaScript Calculator</a></li>
                                 <li><a href="{% url 'projects:weatherapi' %}">Weather App</a></li>
                                 <li><a href="{% url 'projects:githubapi' %}">GitHub API</a></li>
-                                <li><a href="{% url 'projects:todo' %}">Todo List</a></li>
                             </ul>
                     </li>
                     <li {% if "/about/" in request.path %}class="active"{% endif %}><a href="{% url 'home:about' %}">ABOUT</a></li>
