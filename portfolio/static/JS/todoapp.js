@@ -127,7 +127,7 @@ var view = {
         //if enter addTodo else if escape remove input
         addTodoTextInput.addEventListener(
             "keyup",
-            function() {
+            function(event) {
                 if (event.which === ENTER_KEY) {
                     handlers.addTodo(addTodoTextInput);
                 }
