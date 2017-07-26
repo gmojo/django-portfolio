@@ -145,3 +145,11 @@ def todo(request):
         'title': title_text,
         'description': description
     })
+
+def calculator(request):
+    title_text = 'JavaScript Calculator - GarethMoger.com'
+    description = 'Calculator in vanilla JavaScript'
+    return render(request, 'projects/calculator.html', {
+        'title': title_text,
+        'description': description
+    })

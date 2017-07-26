@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^githubapi/$', views.githubapi, name='githubapi'),
     url(r'^weatherapi/$', views.weatherapi, name='weatherapi'),
     url(r'^todo/$', views.todo, name='todo'),
+    url(r'^calculator/$', views.calculator, name='calculator'),
     url(r'^(?P<name>[-\w]+)/$', views.projectredirect, name='projectredirect'),
 ]

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block addstyle %}<link rel="stylesheet" href="{% static 'CSS/calc.css' %}" type="text/css">{% endblock %}
+
+{% block content %}
+
+    <main>
+        <div id="calculator">
+            <h2>JavaScript Calculator</h2>
+            <div class="calc-row clear">
+                <button data-type="clear" class="clearBtn">C</button>
+                <input type="text" placeholder="0"></input>
+            </div>
+            <div class="calc-row">
+                <button data-type="num">7</button>
+                <button data-type="num">8</button>
+                <button data-type="num">9</button>
+                <button data-type="operator">/</button>
+            </div>
+            <div class="calc-row">
+                <button data-type="num">4</button>
+                <button data-type="num">5</button>
+                <button data-type="num">6</button>
+                <button data-type="operator">*</button>
+            </div>
+            <div class="calc-row">
+                <button data-type="num">1</button>
+                <button data-type="num">2</button>
+                <button data-type="num">3</button>
+                <button data-type="operator">-</button>
+            </div>
+                <div class="calc-row">
+                <button data-type="num">0</button>
+                <button data-type="num">.</button>
+                <button data-type="operator">+</button>
+                <button data-type="equals">=</button>
+            </div>
+
+        </div> <!-- end calculator -->
+    </main>
+
+    <script src="{% static 'JS/calc.js' %}"></script>
+
+{% endblock %}
