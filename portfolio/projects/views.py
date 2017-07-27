@@ -153,3 +153,11 @@ def calculator(request):
         'title': title_text,
         'description': description
     })
+
+def tictactoe(request):
+    title_text = 'Tic Tac Toe Game - GarethMoger.com'
+    description = 'Tic Tac Toe in vanilla JavaScript'
+    return render(request, 'projects/tictactoe.html', {
+        'title': title_text,
+        'description': description
+    })

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block addstyle %}<link rel="stylesheet" href="{% static 'CSS/tictactoe.css' %}" type="text/css">{% endblock %}
+
+{% block content %}
+
+    <main>
+        <div id="game">
+            <h2>Tic Tac Toe</h2>
+
+            <div class="game-row">
+                <h4>Select Player</h4>
+                <ul id="select-player">
+                    <li>X</li>
+                    <li>
+                        <label class="switch">
+                          <input type="checkbox" id="player-switch">
+                          <span class="slider"></span>
+                        </label>
+                    </li>
+                    <li>O</li>
+                </ul>
+            </div>
+            <div class="game-row">
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+            <div class="game-row">
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+            <div class="game-row">
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+            <div class="game-row">
+                <button class="clearBtn">Reset</button>
+            </div>
+
+            <h2 id="outcome"></h2>
+
+        </div> <!-- end calculator -->
+    </main>
+
+    <script src="{% static 'JS/tictactoe.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,122 @@
+#game {
+    background-color: #2c3e50;
+    border-radius: 25px;
+    width: 300px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 10px auto 5px auto;
+}
+#game h2, h4 {
+    text-align: center;
+    color: white;
+    margin: 10px 0 10px 0;
+}
+#game h4 {
+    margin: 0 0 5px 0;
+}
+
+.game-row {
+    text-align: center;
+}
+
+#select-player {
+    display: inline;
+    list-style-type: none;
+    padding: 0;
+}
+
+#select-player li {
+    display: inline-block;
+    color: white;
+    font-size: 25px;
+    vertical-align: top;
+    height: 30px;
+    width: 60px;
+    margin: 5px 5px 5px 5px;
+    border: 2px;
+}
+
+main button {
+    vertical-align: top;
+    height: 60px;
+    width: 60px;
+    margin: 5px 5px 5px 5px;
+    font-size: 20px;
+    color: white;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #2c3e50;
+    border: 2px solid #4CAF50;
+}
+
+main button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+main button:focus {
+    outline: 0;
+}
+
+.clearBtn {
+    border: 2px solid #ed4040;
+    width: 150px;
+    height: 35px
+}
+.clearBtn:hover {
+    background-color: #ed4040;
+}
+
+.win {
+    background-color: #4CAF50;
+}
+
+.lose {
+    background-color: #ed4040;
+    border: 2px solid #ed4040;
+}
+
+/*Player switch styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 26px;
+}
+
+.switch input {display:none;}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4CAF50;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(32px);
+    -ms-transform: translateX(32px);
+    transform: translateX(32px);
+}
