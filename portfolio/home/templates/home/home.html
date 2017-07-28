@@ -27,7 +27,7 @@
             
                 <div class="col-md-6 col-sm-6 col-lg-6">
                     <div class="card">
-                        <a href="{% url 'blog:posts' cat=post.category %}">
+                        <a href="{% url 'blog:post_detail' pk=post.pk slug=post.slug %}">
                             <img class="img-responsive blogheader" src="{{ post.headimage.url }}" alt="Blog Header">
                         </a>
                         <div class="card-container">
