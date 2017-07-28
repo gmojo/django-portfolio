@@ -24,7 +24,7 @@ def home(request):
     title_text = 'GarethMoger.com - Data & Development'
     description = 'Data & Development - Building skills together in data analysis and software development'
     post_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:2]
-    projects = Projects.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:3]
+    projects = Projects.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
     return render(request, 'home/home.html', {
         'posts': post_list,
         'title': title_text,

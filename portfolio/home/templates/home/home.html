@@ -18,27 +18,28 @@
 
     <!-- Latest 2 blog posts. 1 row with 2 columns -->
     <div class="container">
-        <div class="row blog">
 
-        <div class="col-lg-12">
-            <h2 class="sidelines">LATEST BLOG POSTS</h2>
-        </div>
-
-        {% for post in posts %}
-            <div class="col-md-6">
-                <div class="post">
-                    <h3><a href="{% url 'blog:post_detail' pk=post.pk slug=post.slug %}">{{ post.title }}</a></h3>
-                    <div class="date">
-                        <p>{{ post.published_date }}</p>
-                    </div>
-                    <div class="blogtext">
-                        {{ post.text|safe|truncatewords_html:50 }}
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="sidelines">LATEST BLOG POSTS</h2>
+            </div>
+            {% for post in posts %}
+            
+                <div class="col-md-6 col-sm-6 col-lg-6">
+                    <div class="card">
+                        <a href="{% url 'blog:posts' cat=post.category %}">
+                            <img class="img-responsive blogheader" src="{{ post.headimage.url }}" alt="Blog Header">
+                        </a>
+                        <div class="card-container">
+                            <h4><a href="{% url 'blog:post_detail' pk=post.pk slug=post.slug %}">{{ post.title }}</a></h4>
+                            <p>{{ post.description|safe|truncatewords_html:50 }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-
+            
+            {% endfor %}
         </div>
+
     </div>
 
     <!-- Latest projects -->
@@ -46,20 +47,23 @@
 
         <h2 class="sidelines">LATEST PROJECTS</h2>
 
-        {% for project in projects %}
         <div class="row">
-            <div class="col-sm-4 col-md-2">
-                <a href="{% url 'projects:projectredirect' name=project.slug %}">
-                    <img class="img-responsive img-rounded center-block" src="{{ project.image.url }}" alt="{{ project.name }}" width="175" height="175">
-                </a>
+        {% for project in projects %}
+
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="card">
+                    <a href="{% url 'projects:projectredirect' name=project.slug %}">
+                        <img class="img-responsive center-block" src="{{ project.image.url }}" alt="{{ project.name }}">
+                    </a>
+                    <div class="card-container">
+                        <h4><a href="{% url 'projects:projectredirect' name=project.slug %}">{{ project.name }}</a></h4>
+                        <p>{{ project.description|truncatewords_html:50 }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-8  col-md-10">
-                <h3><a href="{% url 'projects:projectredirect' name=project.slug %}">{{ project.name }}</a></h3>
-                <p>{{ project.description|truncatewords_html:50 }}</p>
-            </div>
-        </div>
-        <hr>
+
         {% endfor %}
+        </div>
 
     </div>
     <!--end projects-->
