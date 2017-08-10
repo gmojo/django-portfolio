@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block addstyle %}<link rel="stylesheet" href="{% static 'CSS/simonsays.css' %}" type="text/css">{% endblock %}
+
+{% block content %}
+
+    <main>
+        <div id="game">
+            <h1>Simon Says</h1>
+            <div class="game-row">
+                <ul id="mode">
+                    <li>Strict:</li>
+                    <li>
+                        <label class="switch">
+                            <input type="checkbox" id="modeSwitch">
+                            <span class="slider"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="game-row">
+                <ul id="mode">
+                    <li>Count:</li>
+                    <li><input type="text" id="counter" placeholder="0" disabled></li>
+                </ul>
+            </div>
+            <div id="responseBtns">
+                <div class="game-row">
+                    <button class="green"></button>
+                    <button class="red"></button>
+                </div>
+                <div class="game-row">
+                    <button class="blue"></button>
+                    <button class="yellow"></button>
+                </div>
+            </div>
+            <div class="game-row">
+                <button class="clearBtn green" id="start">Start</button>
+            </div>
+            <div class="game-row">
+                <button class="clearBtn red" id="reset">Reset</button>
+            </div>
+            <div class="game-row">
+                <h2 id="outcome"></h2>
+            </div>
+
+        </div> <!-- end game -->
+
+        <p>Complete a sequence of 20 to win!</p>
+    </main>
+
+    <script src="{% static 'JS/simonsays.js' %}"></script>
+
+{% endblock %}

@@ -161,3 +161,11 @@ def tictactoe(request):
         'title': title_text,
         'description': description
     })
+
+def simonsays(request):
+    title_text = 'Simon Says Game - GarethMoger.com'
+    description = 'Simon Game in vanilla JavaScript'
+    return render(request, 'projects/simonsays.html', {
+        'title': title_text,
+        'description': description
+    })

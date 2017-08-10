@@ -1,0 +1,142 @@
+#game {
+  width: 400px;
+  background-color: #2c3e50;
+  border-radius: 25px;
+  padding: 10px;
+    color: white;
+  margin: 20px auto 20px auto;
+}
+#game h1 {
+  text-align: center;
+  margin: 10px 0 10px 0;
+}
+#game h3 {
+  margin: 0 0 5px 0;
+}
+
+.game-row {
+    text-align: center;
+}
+
+#mode {
+  display: inline;
+  list-style-type: none;
+  padding: 0;
+}
+
+#mode li {
+  display: inline-block;
+  font-size: 20px;
+  vertical-align: top;
+  height: 30px;
+  width: 60px;
+  margin: 5px 5px 5px 5px;
+  border: 2px;
+}
+
+#mode input {
+  width: 60px;
+  text-align: center;
+    color: #000;
+}
+
+/*Button styles*/
+main button {
+    outline: none;
+    vertical-align: top;
+    height: 150px;
+    width: 150px;
+    margin: 5px 5px 5px 5px;
+    font-size: 20px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #2c3e50;
+}
+
+main .yellow {
+  border: 2px solid #fff78c;
+}
+main .red {
+  border: 2px solid #ed4040;
+}
+main .green {
+  border: 2px solid #4CAF50;
+}
+main .blue {
+  border: 2px solid #44b7ff;
+}
+
+main .yellow:active {
+    background-color: #fff78c;
+}
+main .red:active {
+    background-color: #ed4040;
+}
+main .green:active {
+    background-color: #4CAF50;
+}
+main .blue:active {
+    background-color: #44b7ff;
+}
+
+.clearBtn {
+  width: 150px;
+  height: 35px
+}
+.clearBtn:hover {
+  background-color: #ed4040;
+}
+
+
+/*Player switch styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 26px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(32px);
+  -ms-transform: translateX(32px);
+  transform: translateX(32px);
+}
+
+p {
+    text-align: center;
+}

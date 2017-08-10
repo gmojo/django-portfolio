@@ -36,23 +36,25 @@
 <body>
 
     <!-- Header above navbar -->
-    <div class="container">
-        <div class="row" style="margin-top:10px">
+    <header>
+        <div class="container">
+            <div class="row" style="margin-top:10px">
 
-            <div class="col-md-6">
-                <a class="abovenavheader" href="https://garethmoger.com/">Gareth Moger</a>
-            </div>
+                <div class="col-md-6">
+                    <a class="abovenavheader" href="https://garethmoger.com/">Gareth Moger</a>
+                </div>
 
-            <div class="col-md-6 text-right">
-                <ul class="social_list">
-                    <li><a href="https://github.com/gmojo/"><span class="fa fa-github"></span></a></li>
-                    <li><a href="https://www.linkedin.com/in/garethmoger/"><span class="fa fa-linkedin-square"></span></a></li>
-                    <li><a href="{% url 'home:contact' %}"><span class="fa fa-envelope-square"></span></a></li>
-                    <li><a href="https://codepen.io/gmojo/"><span class="fa fa-codepen"></span></a></li>
-                </ul>
+                <div class="col-md-6 text-right">
+                    <ul class="social_list">
+                        <li><a href="https://github.com/gmojo/"><span class="fa fa-github"></span></a></li>
+                        <li><a href="https://www.linkedin.com/in/garethmoger/"><span class="fa fa-linkedin-square"></span></a></li>
+                        <li><a href="{% url 'home:contact' %}"><span class="fa fa-envelope-square"></span></a></li>
+                        <li><a href="https://codepen.io/gmojo/"><span class="fa fa-codepen"></span></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
     <!-- End header -->
 
     <!-- Navbar -->
@@ -76,6 +78,7 @@
                                 <li><a href="{% url 'projects:projects' %}">All</a></li>
                                 <li><a href="{% url 'projects:todo' %}">Todo List</a></li>
                                 <li><a href="{% url 'projects:tictactoe' %}">Tic Tac Toe</a></li>
+                                <li><a href="{% url 'projects:simonsays' %}">Simon Says</a></li>
                                 <li><a href="{% url 'projects:calculator' %}">JavaScript Calculator</a></li>
                                 <li><a href="{% url 'projects:weatherapi' %}">Weather App</a></li>
                                 <li><a href="{% url 'projects:githubapi' %}">GitHub API</a></li>

@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^todo/$', views.todo, name='todo'),
     url(r'^calculator/$', views.calculator, name='calculator'),
     url(r'^tictactoe/$', views.tictactoe, name='tictactoe'),
+    url(r'^simonsays/$', views.simonsays, name='simonsays'),
     url(r'^(?P<name>[-\w]+)/$', views.projectredirect, name='projectredirect'),
 ]
