@@ -66,6 +66,7 @@ p {
 h2.sidelines {
     overflow: hidden;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 h2.sidelines:before,
@@ -118,11 +119,10 @@ a.btn-success {
 }
 /* ------------------------*/
 
-.aboutpage {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    background-color: #d5dddd;
-    padding-top: 5px;
+
+#mypic {
+    border: groove 2px #2c3e50;
+    margin: 15px auto 15px auto;
 }
 
 .sidebar {
@@ -154,9 +154,8 @@ a.btn-success {
     display:block;
     text-align:center
 }
-#devicons {
-    font-size: 60px;
-    color: #eab552;
+.devicons {
+    font-size: 80px;
 }
 
 /* Card styles for projects */

@@ -1,52 +1,113 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block addhead %}<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">{% endblock %}
+{% block addhead %}
+<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+{% endblock %}
 
 {% block content %}
 
     <div class="container">
-        <br>
-        <img class="img-responsive img-circle center-block" src="{% static 'img/MeNepal.jpg' %}" alt="Me" width="240" height="240">
-        <h2 class="sidelines">About me</h2>
-        <p>I support the full developement cycle of enterprise systems and provide key information from them, utilising SQL, Python,
-            database knowledge and analysis methodologies.
-        </p>
-        <p>I have worked in the health care and higher education sector for the last 10 years as a data and systems analyst.
-            These roles have had varied responsibilities including systems development, server administration, statistics and dashboard development.
-        </p>
-        <p>Currently I am building my web developement skills to manage and visualise data online using Python's Django framework.</p>
-    </div>
 
-    <div class="container">
-        <h2 class="sidelines">Technical Skills</h2>
+    <section>
+        <h2 class="sidelines">About Me</h2>
+        <img id="mypic" class="img-responsive img-circle" src="{% static 'img/gm.jpeg' %}" alt="Me" width="200" height="200">
         <div class="row">
-            <div class="col-md-4">
-                <h3>Software & Database:</h3>
-                <p>SQL Server, PostgreSQL, BusinessObjects, Tableau</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Languages:</h3>
-                <p>HTML, CSS, JavaScript, Python, SQL, VBA</p>
-            </div>
-            <div class="col-md-4">
-                <h3>Frameworks, Libraries & Tools:</h3>
-                <p>Django, Bootstrap, Git & gitHub, Numpy, Pandas</p>
+            <div class="col-md-10 col-md-offset-1">
+                <p>I have worked in the health care and higher education sector for the last 10 years as a data and systems analyst.
+                    These roles have given me opportunities to work on systems development, server administration, statistics and dashboard development.
+                </p>
+                <p>I am currently building my web developement skills to manage and visualise data online.  This started using Python's Django framework with PostgreSQL but I am also
+                    experimenting with the node.js ecosystem with Express and MongoDB.
+                </p>
             </div>
         </div>
-        <br>
+    </section>
+
+
+    <section>
+        <h2 class="sidelines">Technical Skills</h2>
         <div class="row text-center">
-            <div id="devicons">
-                <i class="devicon-python-plain-wordmark"></i>
-                <i class="devicon-django-plain-wordmark"></i>
-                <i class="devicon-html5-plain-wordmark"></i>
-                <i class="devicon-css3-plain-wordmark"></i>
-                <i class="devicon-javascript-plain"></i>
-                <i class="devicon-jquery-plain-wordmark"></i>
-                <i class="devicon-postgresql-plain-wordmark"></i>
-                <i class="devicon-git-plain-wordmark"></i>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-html5-plain colored"></i>
+                <p>HTML5</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-css3-plain colored"></i>
+                <p>CSS</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-javascript-plain colored"></i>
+                <p>JavaScript</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-jquery-plain colored"></i>
+                <p>jQuery</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-python-plain colored"></i>
+                <p>Python</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-django-plain-wordmark colored"></i>
+                <p>django</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-postgresql-plain colored"></i>
+                <p>postgresql</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-git-plain colored"></i>
+                <p>Git/GitHub</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-nginx-original colored"></i>
+                <p>NGINX</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-bootstrap-plain colored"></i>
+                <p>Bootstrap</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-nodejs-plain-wordmark colored"></i>
+                <p>node.js</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <i class="devicons devicon-express-original colored"></i>
+                <p>Express</p>
             </div>
         </div>
+
+        <br>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h4>Other things that I don't have fancy icons for...</h4>
+                <p>SQL, SQL Server, VBA, Numpy, Pandas, BusinessObjects, Tableau</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="sidelines">Everything else</h2>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <p>I have spent extended periods travelling around India, Nepal and South East Asia.  This has fueled my interests in things like
+                    yoga, meditation and trekking.</p>
+                <p>Following a move back to Cardiff I have been enjoying my new garden and trying my best to get something to grow in it!</p>
+                <p>Do these pictures make me look interesting enough?</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-6">
+                    <img src="{% static 'img/Lake.jpg' %}" alt="Pokhara lake in Nepal">
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'img/MeNepal.jpg' %}" alt="Thorong-La pass in Nepal">
+                </div>
+            </div>
+        </div>
+    </section>
 
     </div>
 
