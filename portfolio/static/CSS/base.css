@@ -9,7 +9,7 @@ html,body
 }
 
 .abovenavheader {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 /* Social buttons */
@@ -17,7 +17,7 @@ html,body
     display: inline;
     list-style-type: none;
     padding-right: 20px;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 /* Search box */

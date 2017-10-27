@@ -17,7 +17,7 @@
 
     {% block addhead %}{% endblock %}
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'CSS/base.css' %}" type="text/css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -35,13 +35,16 @@
 
 <body>
 
-    <!-- Header above navbar -->
+<!-- Header above navbar -->
     <header>
         <div class="container">
             <div class="row" style="margin-top:10px">
 
                 <div class="col-md-6">
-                    <a class="abovenavheader" href="https://garethmoger.com/">Gareth Moger</a>
+                  <a class="abovenavheader" href="https://garethmoger.com/" align="middle">
+                    <img src="{% static 'img/gm.jpeg' %}" class="img-circle" alt="GM" width="50" height="50" >
+                    Gareth Moger
+                  </a>
                 </div>
 
                 <div class="col-md-6 text-right">
@@ -72,19 +75,8 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li {% if "/blog/" in request.path %}class="active"{% endif %}><a href="{% url 'blog:posts' %}">BLOG</a></li>
-                    <li class="dropdown {% if "/projects/" in request.path %}active{% endif %}">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="projects">PROJECTS<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{% url 'projects:projects' %}">All</a></li>
-                                <li><a href="{% url 'projects:todo' %}">Todo List</a></li>
-                                <li><a href="{% url 'projects:tictactoe' %}">Tic Tac Toe</a></li>
-                                <li><a href="{% url 'projects:simonsays' %}">Simon Says</a></li>
-                                <li><a href="{% url 'projects:calculator' %}">JavaScript Calculator</a></li>
-                                <li><a href="{% url 'projects:weatherapi' %}">Weather App</a></li>
-                                <li><a href="{% url 'projects:githubapi' %}">GitHub API</a></li>
-                            </ul>
-                    </li>
-                    <li {% if "/about/" in request.path %}class="active"{% endif %}><a href="{% url 'home:about' %}">ABOUT</a></li>
+                    <li {% if "/projects/" in request.path %}class="active"{% endif %}><a href="{% url 'projects:projects' %}">PROJECTS</a></li>
+                     <li {% if "/about/" in request.path %}class="active"{% endif %}><a href="{% url 'home:about' %}">ABOUT</a></li>
                     <li {% if "/contact/" in request.path %}class="active"{% endif %}><a href="{% url 'home:contact' %}">CONTACT</a></li>
                 </ul>
 
