@@ -13,11 +13,16 @@ html,body
 }
 
 /* Social buttons */
+.social_list {
+    margin-top: 5px !important;
+    margin-bottom: 0px !important;
+}
+
 .social_list li {
     display: inline;
     list-style-type: none;
     padding-right: 20px;
-    font-size: 20px;
+    font-size: 26px;
 }
 
 /* Search box */
