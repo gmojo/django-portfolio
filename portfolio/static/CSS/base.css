@@ -42,8 +42,9 @@ nav.navbar {
 }
 
 p {
-    font-size: 17px;
-    line-height: 27px;
+    font-size: 18px;
+    line-height: 30px;
+    color: #202121;
 }
 
 .v-center {

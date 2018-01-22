@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block addstyle %}
+<style>
+    p {margin-top: 30px;}
+</style>
+{% endblock %}
+
 {% block content %}
 
 <div class="container">
@@ -8,7 +14,7 @@
     <div class="row">
 
         <!-- Blog Post/s Column -->
-        <div class="col-md-9">
+        <div class="col-md-7 col-md-offset-1">
 
         {% block blogcontent %}
 
