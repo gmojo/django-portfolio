@@ -51,8 +51,7 @@
                     <ul class="social_list">
                         <li><a href="https://github.com/gmojo/"><span class="fa fa-github"></span></a></li>
                         <li><a href="https://www.linkedin.com/in/garethmoger/"><span class="fa fa-linkedin-square"></span></a></li>
-                        <li><a href="{% url 'home:contact' %}"><span class="fa fa-envelope-square"></span></a></li>
-                        <li><a href="https://codepen.io/gmojo/"><span class="fa fa-codepen"></span></a></li>
+                        <li><a href="{% url 'home:home' %}"><span class="fa fa-envelope-square"></span></a></li>
                     </ul>
                 </div>
             </div>
@@ -74,13 +73,13 @@
 
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li {% if "/blog/" in request.path %}class="active"{% endif %}><a href="{% url 'blog:posts' %}">BLOG</a></li>
-                    <li {% if "/projects/" in request.path %}class="active"{% endif %}><a href="{% url 'projects:projects' %}">PROJECTS</a></li>
-                     <li {% if "/about/" in request.path %}class="active"{% endif %}><a href="{% url 'home:about' %}">ABOUT</a></li>
-                    <li {% if "/contact/" in request.path %}class="active"{% endif %}><a href="{% url 'home:contact' %}">CONTACT</a></li>
+                    <li {% if "/blog/" in request.path %}class="active"{% endif %}><a href="{% url 'home:home' %}">BLOG</a></li>
+                    <li {% if "/projects/" in request.path %}class="active"{% endif %}><a href="{% url 'home:home' %}">PROJECTS</a></li>
+                     <li {% if "/about/" in request.path %}class="active"{% endif %}><a href="{% url 'home:home' %}">ABOUT</a></li>
+                    <li {% if "/contact/" in request.path %}class="active"{% endif %}><a href="{% url 'home:home' %}">CONTACT</a></li>
                 </ul>
 
-                <form method="get" action="{% url 'home:search' %}" class="navbar-form navbar-right">
+                <form method="get" action="{% url 'home:home' %}" class="navbar-form navbar-right">
                     <div class="form-group">
                         <input type="text" name="query" class="form-control searchbar" placeholder="Search">
                     </div>
@@ -104,8 +103,7 @@
                 <ul class="social_list">
                     <li><a href="https://github.com/gmojo/"><span class="fa fa-github"></span></a></li>
                     <li><a href="https://www.linkedin.com/in/garethmoger/"><span class="fa fa-linkedin-square"></span></a></li>
-                    <li><a href="{% url 'home:contact' %}"><span class="fa fa-envelope-square"></span></a></li>
-                    <li><a href="https://codepen.io/gmojo/"><span class="fa fa-codepen"></span></a></li>
+                    <li><a href="{% url 'home:home' %}"><span class="fa fa-envelope-square"></span></a></li>
                 </ul>
             </div>
         </div>
