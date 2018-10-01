@@ -1,18 +1,17 @@
 from django.core.mail import BadHeaderError, EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.utils import timezone
-from blog.models import Post
-from projects.models import Projects
-from django.db.models import Q
 from .forms import ContactForm
+
+# from blog.models import Post
+# from django.db.models import Q
 
 
 def search(request):
     query = request.GET.get('query')
     title = 'Search: ' + query
     description = 'Search results'
-    results = Post.objects.filter(Q(title__icontains=query) | Q(text__icontains=query)).order_by('-published_date')
+    results = 'testing'
     return render(request, 'home/search.html', {
         'results': results,
         'title': title,
@@ -20,17 +19,38 @@ def search(request):
     })
 
 
+# def search(request):
+#     query = request.GET.get('query')
+#     title = 'Search: ' + query
+#     description = 'Search results'
+#     results = Post.objects.filter(Q(title__icontains=query) | Q(text__icontains=query)).order_by('-published_date')
+#     return render(request, 'home/search.html', {
+#         'results': results,
+#         'title': title,
+#         'description': description
+#     })
+
+
 def home(request):
     title_text = 'GarethMoger.com - Data & Development'
     description = 'Data & Development - Building skills together in data analysis and software development'
-    post_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:2]
-    projects = Projects.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
     return render(request, 'home/home.html', {
-        'posts': post_list,
         'title': title_text,
-        'projects': projects,
         'description': description
     })
+
+
+# def home(request):
+#     title_text = 'GarethMoger.com - Data & Development'
+#     description = 'Data & Development - Building skills together in data analysis and software development'
+#     post_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:2]
+#     projects = Projects.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[0:4]
+#     return render(request, 'home/home.html', {
+#         'posts': post_list,
+#         'title': title_text,
+#         'projects': projects,
+#         'description': description
+#     })
 
 
 def about(request):
